@@ -1,6 +1,9 @@
 import './styles.css';
 
 export function Exercise() {
+  const animal = { type: 'cat', age: 'six', name: 'sernik' };
+  animal.age = 'eight';
+  console.log(animal);
   let string1 = 'Jon Snow';
 
   const string3 = 'Ulubiony bohater z serialu "Gra o tron" to ' + string1;
@@ -19,7 +22,10 @@ export function Exercise() {
         <p>{string2}</p>
         <p>{string3}</p>
         {/* Uzupełnij zanie korzystając ze zmiennych oraz operacji na stringach */}
-        <p>Witaj ____! Jesteś ____ uzytkownikiem odwiedzającym tę stronę!</p>
+        <p>
+          Witaj ____! Jesteś ____ uzytkownikiem odwiedzającym tę stronę! Lorem
+          ipsum dolor sit amet consectetur, adipisicing elit. Tempora, enim!
+        </p>
       </section>
     </div>
   );

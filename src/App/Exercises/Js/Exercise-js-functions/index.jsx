@@ -1,6 +1,8 @@
 import './styles.css';
 
 export function Exercise() {
+  const number1 = 7;
+  const number2 = 6;
   function multiply(num1, num2) {
     return num1 * num2;
   }
@@ -23,7 +25,6 @@ export function Exercise() {
             `}
         </code>
       </pre>
-
       <section>
         <h2>Wykorzystywanie funkcji - przykłady</h2>
         <pre>
@@ -33,6 +34,7 @@ export function Exercise() {
           <code>{getWelcomeMessage('Jon', 129384)}</code>
         </pre>
       </section>
+      Wynik funkcji {multiply(number1, number2)}
     </div>
   );
 }
