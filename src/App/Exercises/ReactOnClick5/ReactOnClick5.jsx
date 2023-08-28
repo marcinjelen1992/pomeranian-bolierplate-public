@@ -2,19 +2,7 @@ import { useState } from 'react';
 import './styles.css';
 
 export const ReactOnClick5 = () => {
-  // const [isClicked, setIsClicked] = useState(false);
-  // const [clickCount, setClickCount] = useState(2);
-
-  // const buttonText = isClicked
-  //  ? `Kliknięto we mnie ${clickCount}`
-  //  : 'Kliknij we mnie';
-
-  // function handleClick() {
-  //  setIsClicked(true);
-  //  setClickCount(clickCount * clickCount);
-  // }
-
-  const [buttonText, setButtonText] = useState('Odliczanie');
+  const [buttonText, setButtonText] = useState('');
 
   function Multiply() {
     var a = document.getElementById('txtA').value;
@@ -26,15 +14,10 @@ export const ReactOnClick5 = () => {
   return (
     <div>
       <h1>Cześć!</h1>
-      <input type="text" id="txtA" name="txtA" />
+      <input type="number" id="txtA" name="txtA" />
       *
-      <input type="text" id="txtB" name="txtA" />
-      <input
-        type="button"
-        name="btnMultiply"
-        value="Submit"
-        onclick="Multiply()"
-      />
+      <input type="number" id="txtB" name="txtB" />
+      <button onClick={Multiply()}>Oblicz</button>
       <p>
         <strong>Wynik: {buttonText}</strong>
       </p>

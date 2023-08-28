@@ -2,10 +2,17 @@ import { useState } from 'react';
 import './styles.css';
 
 export const ReactOnClick3 = () => {
-  // const [count, setCount] = useState(0);
-  // Math.pow(x,y)
+  // const [isClicked, setIsClicked] = useState(false);
+  // const [clickCount, setClickCount] = useState(2);
 
-  // const text = isClicked ? 'Kliknięcie' : 'Nie kliknięte';
+  // const buttonText = isClicked
+  //  ? `Kliknięto we mnie ${clickCount}`
+  //  : 'Kliknij we mnie';
+
+  // function handleClick() {
+  //  setIsClicked(true);
+  //  setClickCount(clickCount * clickCount);
+  // }
 
   const [isClicked, setIsClicked] = useState(false);
   const [clickCount, setClickCount] = useState(2);
@@ -23,7 +30,7 @@ export const ReactOnClick3 = () => {
     var a = document.getElementById('txtA').value;
     var b = document.getElementById('txtB').value;
     var result = parseInt(a) * parseInt(b);
-    alert(result);
+    console.log(result);
   }
 
   return (
