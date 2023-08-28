@@ -1,0 +1,23 @@
+.test span:first-child {
+    color: red;
+}
+
+.test span:nth-child(2n) {
+    color: blue;
+}
+
+.hover:hover {
+    background-color: blueviolet;
+}
+
+.firstname:focus {
+    background-color: blue;
+}
+
+.pseudo::before{
+    content: 'Before';
+}
+
+.pseudo::after{
+    content: 'After';
+}
