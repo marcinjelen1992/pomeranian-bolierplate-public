@@ -26,29 +26,10 @@ export const ReactOnClick3 = () => {
     setClickCount(clickCount * clickCount);
   }
 
-  function Multiply() {
-    var a = document.getElementById('txtA').value;
-    var b = document.getElementById('txtB').value;
-    var result = parseInt(a) * parseInt(b);
-    console.log(result);
-  }
-
   return (
     <div>
       <h1>Cześć!</h1>
       <button onClick={handleClick}>{buttonText}</button>
-      <input type="text" id="txtA" name="txtA" />
-      *
-      <input type="text" id="txtB" name="txtA" />
-      <input
-        type="button"
-        name="btnMultiply"
-        value="Submit"
-        onclick="Multiply()"
-      />
-      <p>
-        <strong>Wynik: {Multiply}</strong>
-      </p>
     </div>
   );
 };

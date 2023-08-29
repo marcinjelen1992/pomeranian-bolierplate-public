@@ -15,13 +15,17 @@ export const ReactOnClick5 = () => {
     setNumberB(event.target.value);
   }
 
+  function Multiply() {
+    setResultA(numberA * numberB);
+  }
+
   return (
     <div>
       <h1>Cześć!</h1>
       <input type="text" value={numberA} onChange={GetA} />
       *
       <input type="text" value={numberB} onChange={GetB} />
-      <button>Oblicz</button>
+      <button onClick={Multiply}>Oblicz</button>
       <p>
         <strong>
           {numberA} * {numberB} = {resultA}
