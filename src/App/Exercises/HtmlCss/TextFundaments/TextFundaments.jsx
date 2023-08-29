@@ -37,6 +37,9 @@ export const TextFundaments = () => {
         <p>
           Indeks <span className="sub">dolny</span>
         </p>
+        <p>
+          C<span className="sub">2</span>H<span className="sub">5</span>OH
+        </p>
       </div>
       <hr />
       <div>
