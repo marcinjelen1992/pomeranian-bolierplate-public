@@ -118,8 +118,12 @@
     font-style: italic;
 }
 
+.unorderedlistreplacement {
+    padding-left: 40px;
+}
+
 .listelementreplacement {
     display: list-item;
-    list-style: square;
+    list-style: circle;
     list-style-position: inside;
 }
