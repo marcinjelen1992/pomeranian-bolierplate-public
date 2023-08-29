@@ -2,24 +2,30 @@ import { useState } from 'react';
 import './styles.css';
 
 export const ReactOnClick5 = () => {
-  const [buttonText, setButtonText] = useState('');
+  // const [buttonText, setButtonText] = useState('');
+  const [numberA, setNumberA] = useState('');
+  const [numberB, setNumberB] = useState('');
+  const [resultA, setResultA] = useState('');
 
-  function Multiply() {
-    var a = document.getElementById('txtA').value;
-    var b = document.getElementById('txtB').value;
-    var result = parseInt(a) * parseInt(b);
-    setButtonText(result);
+  function GetA(event) {
+    setNumberA(event.target.value);
+  }
+
+  function GetB(event) {
+    setNumberB(event.target.value);
   }
 
   return (
     <div>
       <h1>Cześć!</h1>
-      <input type="number" id="txtA" name="txtA" />
+      <input type="text" value={numberA} onChange={GetA} />
       *
-      <input type="number" id="txtB" name="txtB" />
-      <button onClick={Multiply()}>Oblicz</button>
+      <input type="text" value={numberB} onChange={GetB} />
+      <button>Oblicz</button>
       <p>
-        <strong>Wynik: {buttonText}</strong>
+        <strong>
+          {numberA} * {numberB} = {resultA}
+        </strong>
       </p>
     </div>
   );
