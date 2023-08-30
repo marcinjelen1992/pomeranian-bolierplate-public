@@ -4,7 +4,7 @@ export const TextFundaments = () => {
   return (
     <>
       <div>
-        <h2>Podstawowe</h2>
+        <h2 className="fundamentsHeader">Podstawowe</h2>
         <p className="color">Kolor tekstu</p>
         <p className="size">Wielkość tekstu</p>
         <p className="style">Styl tekstu</p>

@@ -1,0 +1,36 @@
+div.animations {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: blinking-square;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blinking-square {
+    0% {background-color: red;};
+    25% {background-color: yellow;};
+    50% {background-color: green;};
+    100% {background-color: blue;};
+}
+
+  .sun {
+    background-color: yellow;
+    border-radius: 50%; /* creates a circular background */
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1 / 1;
+    animation: 4s linear 0s infinite alternate sun-rise;
+  }
+  
+  @keyframes sun-rise {
+    from {
+      /* pushes the sun down past the viewport */
+      transform: translateY(110vh);
+    }
+    to {
+      /* returns the sun to its default position */
+      transform: translateY(0);
+    }
+  }
+  
