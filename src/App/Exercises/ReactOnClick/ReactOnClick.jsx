@@ -16,7 +16,7 @@ export const ReactOnClick = () => {
 
   return (
     <div>
-      <h1>Cześć!</h1>
+      <h1>Cześć! Wpisz dowolny tekst</h1>
       <button onClick={handleClick}>Resetuj</button>
       <input type="text" value={value} onChange={handleChange} />
       <p>

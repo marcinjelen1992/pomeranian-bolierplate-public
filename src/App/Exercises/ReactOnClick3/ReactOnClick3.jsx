@@ -28,7 +28,7 @@ export const ReactOnClick3 = () => {
 
   return (
     <div>
-      <h1>Cześć!</h1>
+      <h1>Naciśnij przycisk</h1>
       <button onClick={handleClick}>{buttonText}</button>
     </div>
   );

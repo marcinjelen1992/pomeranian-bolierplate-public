@@ -15,7 +15,7 @@ export const ReactOnClick4 = () => {
     console.log('Test to Sam');
   } else {
   }
-  const [isClicked, setIsClicked] = useState(false);
+  // const [isClicked, setIsClicked] = useState(false);
   const [clickCount, setClickCount] = useState(5);
   const [buttonText, setButtonText] = useState('Odliczanie');
 
@@ -30,7 +30,7 @@ export const ReactOnClick4 = () => {
 
   return (
     <div>
-      <h1>Cześć!</h1>
+      <h1>Naciśnij przycisk</h1>
       <button onClick={handleClick}>{clickCount}</button>
       <p>
         <strong>{buttonText}</strong>

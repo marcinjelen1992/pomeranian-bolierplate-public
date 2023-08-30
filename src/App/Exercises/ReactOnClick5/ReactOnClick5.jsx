@@ -21,7 +21,7 @@ export const ReactOnClick5 = () => {
 
   return (
     <div>
-      <h1>Cześć!</h1>
+      <h1>Mnożenie dwóch liczb</h1>
       <input type="text" value={numberA} onChange={GetA} />
       *
       <input type="text" value={numberB} onChange={GetB} />
