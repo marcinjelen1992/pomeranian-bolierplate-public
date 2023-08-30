@@ -5,4 +5,7 @@
   background-size: cover;
   background-position: center, center;
   background-repeat: no-repeat;
+  filter: hue-rotate(60deg) saturate(186%);
+  -webkit-filter: hue-rotate(60deg) saturate(186%);
+  -moz-filter: hue-rotate(60deg) saturate(186%);
 }
