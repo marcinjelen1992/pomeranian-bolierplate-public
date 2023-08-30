@@ -1,0 +1,8 @@
+.bgs {
+  height: 450px;
+  width: 800px;
+  background: url('./IMG_8043.JPG');
+  background-size: cover;
+  background-position: center, center;
+  background-repeat: no-repeat;
+}
