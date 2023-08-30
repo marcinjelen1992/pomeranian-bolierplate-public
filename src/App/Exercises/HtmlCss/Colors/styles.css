@@ -21,3 +21,14 @@
 .hsl {
   color: hsl(0deg, 100%, 50%);
 }
+
+.opacity {
+  background-color: greenyellow;
+  padding: 20px;
+  opacity: 0.6;
+}
+
+.rgbaopacity {
+  background-color: rgba(0,218,255,0.3);
+  padding: 20px;
+}

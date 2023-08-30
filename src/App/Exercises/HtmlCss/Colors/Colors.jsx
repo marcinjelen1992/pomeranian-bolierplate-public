@@ -13,6 +13,11 @@ export const Colors = () => {
         <h2 className="rgba">Jestem pomalowany przy uzyciu "rgba"</h2>
         <h2 className="hsl">Jestem pomalowany przy uzyciu "hsl"</h2>
       </div>
+      <hr />
+      <div>
+        <div className="opacity">Jestem divem z tekstem</div>
+        <div className="rgbaopacity">Jestem divem z tekstem</div>
+      </div>
     </>
   );
 };
