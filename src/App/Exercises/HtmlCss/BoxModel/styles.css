@@ -1,0 +1,40 @@
+.div_nr1 {
+  margin: 20px 20px 15px 30px;
+  border: 2px solid slateblue;
+  padding: 20px 20px 15px 30px;
+  background: darkorange;
+  box-sizing: content-box;
+  width: 200px;
+}
+
+.div_nr2 {
+  margin: 20px 20px 15px 30px;
+  border: 2px solid slateblue;
+  padding: 20px 20px 15px 30px;
+  background: darkorange;
+  box-sizing: border-box;
+  width: 200px;
+}
+
+.p_nr1 {
+  background-color: darkcyan;
+}
+
+.p_nr2 {
+  background-color: darkorange;
+}
+
+.p_nr3{
+  background-color: red;
+  display: inline;
+}
+
+.p_nr4 {
+  background-color: red;
+  display: block;
+  height: 60px;
+}
+
+.span_nr1 {
+  display:block;
+}
