@@ -1,0 +1,6 @@
+.round-image {
+    border-radius: 100%;
+    filter: hue-rotate(60deg) saturate(186%);
+    -webkit-filter: hue-rotate(80deg) saturate(186%);
+    -moz-filter: hue-rotate(60deg) saturate(186%);
+}

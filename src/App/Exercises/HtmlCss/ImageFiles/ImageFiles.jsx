@@ -1,14 +1,19 @@
 import './styles.css';
-import firstpic from './IMG_2306.JPG';
-import secondpic from './train-16194.png';
+import logoPomeranian from './pomeranian-logo.png';
+import zdjecie from './zdjecie.png';
 import thirdpic from './kiwi.svg';
+import { RoundImage } from '../../../Components/RoundImage/RoundImage';
 
 export const ImageFiles = () => {
   return (
     <>
+      <div>
+        <RoundImage src={logoPomeranian} size={500} />
+
+        <RoundImage src={zdjecie} size={500} />
+      </div>
       <div className="images">
-        <img src={firstpic} alt="lokomotywa SU42" />
-        <img src={secondpic} alt="amerykańska lokomotywa" />
+        <img src={zdjecie} alt="zdjęcie nurka pod wodą" />
         <img src={thirdpic} alt="ptak kiwi" />
       </div>
     </>
