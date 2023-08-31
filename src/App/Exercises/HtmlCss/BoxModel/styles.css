@@ -38,3 +38,12 @@
 .span_nr1 {
   display:block;
 }
+
+.div_nr3 {
+  background-color: bisque;
+  border: 2px solid gold;
+  max-width: 100px;
+  max-height: 250px;
+  /* Overflow - Scrollowanie*/
+  overflow: scroll;
+}

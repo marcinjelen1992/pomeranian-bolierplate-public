@@ -22,6 +22,7 @@ export const BoxModel = () => {
         <p className="p_nr4">Przykładowy p z display: block</p>
         <h1 className="h1_nr1">Przykładowy h1</h1>
         <span className="span_nr1">Przykładowy span</span>
+        <div className="div_nr3">Przykładowy div dotyczący overflow</div>
       </div>
     </>
   );
