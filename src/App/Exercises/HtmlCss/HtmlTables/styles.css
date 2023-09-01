@@ -1,4 +1,4 @@
-table {
+.first-table {
   table-layout: fixed;
   width: 100%;
   text-align: left;
@@ -6,12 +6,17 @@ table {
   border-collapse: collapse;
 }
 
-td, th {
+.first-table > tr > td {
   padding: 5px;
   border: 1px solid #ccc;
 }
 
-tr:nth-child(2n){
+.first-table > tr > th {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.first-table > tr:nth-child(2n){
   background-color: #f1e8e8;
 }
 

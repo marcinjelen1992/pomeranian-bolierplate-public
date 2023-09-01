@@ -10,7 +10,7 @@ export const HtmlTables = () => {
             tested four different types of plastics
           </li>
         </ol>
-        <table>
+        <table className="first-table">
           <tr>
             <th>Plastic</th>
             <th>Acetone</th>

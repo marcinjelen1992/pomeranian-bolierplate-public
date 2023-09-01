@@ -1,0 +1,40 @@
+.tennis-table {
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.tennis-table-row:hover {
+  border: 2px solid darkviolet;
+}
+
+.tennis-table > tr > td {
+  padding: 5px;
+  height: 48px;
+}
+
+.tennis-table > tr > td:first-child {
+  padding-left: 20px;
+}
+
+.tennis-table > tr > td:last-child {
+  text-align: right;
+  padding-right: 20px;
+}
+
+.tennis-table > tr > th {
+  padding: 5px;
+  border: 1px solid #cfcfcf;
+  background-color: #cfcfcf;
+  border-bottom: 2px solid #f78989;
+  height: 48px;
+}
+
+.tennis-table > tr > th:first-child {
+  padding-left: 20px;
+}
+
+.tennis-table > tr:nth-child(2n + 1){
+  background-color: #f78989;
+}
