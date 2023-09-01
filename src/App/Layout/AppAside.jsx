@@ -10,6 +10,8 @@ import { PersonalCardIcon } from '../../App/Components/Icons/PersonalCardIcon';
 
 import { CalendarIcon } from '../../App/Components/Icons/CalendarIcon';
 
+import { FaqIcon } from '../../App/Components/Icons/FaqIcon';
+
 import './styles/aside.css';
 
 export function AppAside() {
@@ -40,6 +42,10 @@ export function AppAside() {
           <li className="aside-row">
             <PersonalCardIcon />
             <NavLink to="Blog">Blog</NavLink>
+          </li>
+          <li className="aside-row">
+            <FaqIcon />
+            <NavLink to="Faq">FAQ</NavLink>
           </li>
         </ul>
       </nav>
