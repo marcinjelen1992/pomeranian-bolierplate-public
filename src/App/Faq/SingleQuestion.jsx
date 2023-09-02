@@ -2,9 +2,9 @@ import './styles.css';
 
 export const SingleQuestion = ({ question, answer }) => {
   return (
-    <div className="single-question">
+    <div>
       <div className="faq-list">
-        <strong>{question}</strong>
+        <p>{question}</p>
         <p>{answer}</p>
       </div>
     </div>
