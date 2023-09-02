@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     margin: 10px;
+    gap: 20px;
 }
 
 .faq-list {
@@ -12,4 +13,5 @@
 
 .faq-list > p:first-child {
     font-weight: bold;
+    cursor: crosshair;
 }
