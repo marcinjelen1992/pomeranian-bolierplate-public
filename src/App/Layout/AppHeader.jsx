@@ -2,6 +2,8 @@ import React from 'react';
 
 import './styles/header.css';
 import { Logo } from '../Components/Logo/Logo';
+import { SettingIcon } from '../Components/Icons/SettingIcon';
+import { PointingDownIcon } from '../Components/Icons/PointingDownIcon';
 import { Link } from 'react-router-dom';
 
 export function AppHeader() {
@@ -11,7 +13,14 @@ export function AppHeader() {
         <Link to="/">
           <Logo />
         </Link>
-        <div className="header-title">Tytuł nagłówka</div>
+      </div>
+      <div className="header-title">
+        <SettingIcon />
+        <div>
+          <span>Marcin</span>
+          <span>kursant</span>
+        </div>
+        <PointingDownIcon />
       </div>
     </header>
   );
