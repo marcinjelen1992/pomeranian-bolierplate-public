@@ -7,7 +7,8 @@ export const RoundImage = ({ src, size }) => {
       style={{
         backgroundImage: `url(${src})`,
         width: `${size}px`,
-        height: `500px`,
+        height: `${size}px`,
+        backgroundSize: 'cover',
       }}
     ></div>
   );

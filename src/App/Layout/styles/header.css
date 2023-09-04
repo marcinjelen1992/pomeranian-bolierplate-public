@@ -20,11 +20,3 @@ header > a:first-of-type {
   gap: 40px
 }
 
-.header-title > div {
-  display: flex;
-  flex-direction: column;
-}
-
-.header-title > div > span:first-child {
-  font-weight: bold;
-}

@@ -5,6 +5,7 @@ import { Logo } from '../Components/Logo/Logo';
 import { SettingIcon } from '../Components/Icons/SettingIcon';
 import { PointingDownIcon } from '../Components/Icons/PointingDownIcon';
 import { Link } from 'react-router-dom';
+import { HeaderMenu } from '../Components/HeaderMenu/HeaderMenu';
 
 export function AppHeader() {
   return (
@@ -15,12 +16,7 @@ export function AppHeader() {
         </Link>
       </div>
       <div className="header-title">
-        <SettingIcon />
-        <div>
-          <span>Marcin</span>
-          <span>kursant</span>
-        </div>
-        <PointingDownIcon />
+        <HeaderMenu />
       </div>
     </header>
   );

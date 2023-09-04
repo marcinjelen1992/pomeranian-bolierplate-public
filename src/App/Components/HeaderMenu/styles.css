@@ -1,0 +1,13 @@
+.header-menu-class {
+    display: flex;
+    gap: 40px;
+}
+
+.header-menu-class > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-menu-class > div :first-child {
+    font-weight: bold;
+}
