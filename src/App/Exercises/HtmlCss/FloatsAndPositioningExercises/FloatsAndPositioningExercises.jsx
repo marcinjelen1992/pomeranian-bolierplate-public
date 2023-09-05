@@ -27,7 +27,10 @@ export const FloatsAndPositioningExercises = () => {
         </div>
       </div>
       <div className="floatingdivthree">
-        <img src={zdjecie} alt="zdjęcie amerykańskiej lokomotywy" />
+        <img
+          src={zdjecie}
+          alt="zdjęcie lokomotywy Genesee and Wyoming Australia EMD GT26C"
+        />
         <div></div>
         <div className="floatingdivthreesubone">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur

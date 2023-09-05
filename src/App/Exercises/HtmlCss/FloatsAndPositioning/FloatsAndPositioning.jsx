@@ -5,7 +5,10 @@ export const FloatsAndPositioning = () => {
   return (
     <div className="floats">
       <div className="elementzero">
-        <img src={zdjecie} alt="zdjęcie amerykańskiej lokomotywy" />
+        <img
+          src={zdjecie}
+          alt="zdjęcie lokomotywy Genesee and Wyoming Australia EMD GT26C"
+        />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
           repellat maxime, culpa iste in aspernatur magnam, id impedit
