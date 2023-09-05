@@ -9,10 +9,12 @@ export const HeaderMenu = () => {
   return (
     <div className="header-menu-class">
       <SettingIcon />
-      <RoundImage src={flexfacepic} size={50} />
-      <div>
-        <span>Marcin</span>
-        <span>kursant</span>
+      <div className="header-menu-icon">
+        <RoundImage src={flexfacepic} size={50} />
+      </div>
+      <div className="header-user">
+        <p>Marcin</p>
+        <p>kursant</p>
       </div>
       <PointingDownIcon />
     </div>

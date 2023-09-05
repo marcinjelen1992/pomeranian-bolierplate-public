@@ -1,0 +1,5 @@
+.tech-stack-container {
+    display: grid;
+    grid-template-columns: [first] 40px [line2] auto [line3] auto [col4-start] auto [five] auto [six] auto [seven] auto [eight] 40px [end];
+  grid-template-rows: [row1-start] 200px [row1-end] 100px [third-line] auto [last-line];
+}
