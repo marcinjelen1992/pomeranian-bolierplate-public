@@ -1,0 +1,59 @@
+.floatexec {
+  position: relative;
+}
+
+.floatingdivonesubone {
+  float: left;
+  position: absolute;
+  left: 20px;
+}
+
+.floatingdivtwo {
+  float: left;
+  position: absolute;
+  top: 200px;
+  background-color: #EBEBEB;
+  max-width: 650px;
+}
+
+.floatingdivtwosubone {
+  float: right;
+  position: absolute;
+  bottom: 40px;
+  left: 600px;
+  max-width: 200px;
+  background-color: #FFD5DB;
+}
+
+.floatingdivthree {
+  float: left;
+  position: absolute;
+  top: 500px;
+  background-color: #FFD5DB;
+}
+
+.floatingdivthree > :first-child, .floatingdivthree > :last-child {
+  float: left;
+  max-width: 300px;
+}
+
+.floatingdivthree > :nth-child(2) {
+  float: left;
+  width: 300px;
+  height: 100px;
+  background-color: #FFD5DB;
+}
+
+.floatingdivthree > img {
+  float: left;
+  position: absolute;
+  top: 50px;
+}
+
+.floatingdivfour {
+  float: left;
+  position: absolute;
+  top: 800px;
+  background-color: #4B5563;
+  color: #FFF
+}
