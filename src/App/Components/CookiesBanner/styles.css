@@ -3,11 +3,12 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: #23213D;
+    background-color: rgba(35, 33, 61, 0.9);
     color: #FFF;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 80px 0;
 }
 
 .cookies-content {
@@ -15,5 +16,39 @@
 }
 
 .cookies img {
-    float: left
+    float: left;
+    margin: 15px 15px 0 0;
+}
+
+.cookies-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.cookies-content p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.button-primary {
+    padding: 20px 36px;
+    border-radius: 8px;
+    color :#fff;
+    background-color: #FE3756;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 0;
+    margin-right: 16px;
+}
+
+.button-secondary {
+    padding: 20px 36px;
+    border-radius: 8px;
+    color :#FE3756;
+    background-color: #FFF;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 0;
+    margin-right: 16px;
 }
