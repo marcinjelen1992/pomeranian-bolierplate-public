@@ -1,0 +1,9 @@
+.muibuttonpage {
+    display: flex;
+    flex-direction: column;
+}
+
+.muibuttonpage > div {
+    margin-top: 16px;
+    margin-left: 16px;
+}

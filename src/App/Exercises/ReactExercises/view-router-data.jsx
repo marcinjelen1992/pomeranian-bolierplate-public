@@ -12,6 +12,8 @@ import { ReactOnClick5RouterMetaData } from '../ReactOnClick5/router-data';
 
 import { ReactOnClick6RouterMetaData } from '../ReactOnClick6/router-data';
 
+import { materialUIRouterMetaData } from './materialUI/router-data';
+
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   ReactOnClickRouterMetaData,
@@ -19,5 +21,6 @@ export const blockRouterMetaData = [
   ReactOnClick4RouterMetaData,
   ReactOnClick5RouterMetaData,
   ReactOnClick6RouterMetaData,
+  materialUIRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
