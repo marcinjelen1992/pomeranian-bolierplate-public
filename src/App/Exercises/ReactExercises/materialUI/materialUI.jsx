@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { Button } from '@mui/material';
 import { Stack } from '@mui/material';
 import { PointingDownIcon } from '../../../Components/Icons/PointingDownIcon';
+import SendIcon from '@mui/icons-material/Send';
 import Box from '@mui/material/Box';
 import DisableElevation from '../DisableElevation/DisableElevation';
+import PurpleButton from '../PurpleButton/PurpleButton';
 
 export const MaterialUI = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -117,12 +119,14 @@ export const MaterialUI = () => {
           <Button variant="outlined" startIcon={<PointingDownIcon />}>
             Delete
           </Button>
-          <Button variant="contained" endIcon={<PointingDownIcon />}>
+          <Button variant="contained" endIcon={<SendIcon />}>
             Send
           </Button>
         </Stack>
       </div>
-      <div>Purple button nie działa</div>
+      <div>
+        <PurpleButton />
+      </div>
     </div>
   );
 };
