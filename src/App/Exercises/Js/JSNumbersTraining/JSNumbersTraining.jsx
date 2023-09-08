@@ -87,14 +87,12 @@ export const JSNumbersTraining = () => {
           </p>
           <p>
             Is this string shorter than 10 characters?{' '}
-            <button onClick={CharCountCheck}>Kliknij by sprawdzić</button>
+            <button onClick={CharCountCheck}>Click to find out</button>
             <br />
             {moreThanTen && (
-              <strong>Długość stringa jest równa lub większa niż 10</strong>
+              <strong>String length is equal or greater than 10</strong>
             )}
-            {lessThanTen && (
-              <strong>Długość stringa jest mniejsza niż 10</strong>
-            )}
+            {lessThanTen && <strong>String length is less than 10</strong>}
           </p>
         </div>
       </div>
