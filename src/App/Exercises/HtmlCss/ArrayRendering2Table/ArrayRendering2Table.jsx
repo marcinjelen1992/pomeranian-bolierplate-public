@@ -43,17 +43,24 @@ export const ArrayRendering2Table = () => {
   return (
     <>
       <table className="array-table">
-        {BANDS.map((item) => {
-          return (
-            <tr>
-              <th key={item.id} id={item.id}>{`${item.band}`}</th>
-              <td
-                key={item.id}
-                id={item.id}
-              >{`${item.yearFormed} ${item.albums} ${item.mostFamousSong}`}</td>
+        <thead>
+          <tr>
+            <th>Zespół</th>
+            <th>Rok powstania</th>
+            <th>Ilość albumów</th>
+            <th>Najpopularniejsza piosenka</th>
+          </tr>
+        </thead>
+        <tbody>
+          {BANDS.map((item, index) => (
+            <tr key={index}>
+              <td>{item.band}</td>
+              <td>{item.yearFormed}</td>
+              <td>{item.albums}</td>
+              <td>{item.mostFamousSong}</td>
             </tr>
-          );
-        })}
+          ))}
+        </tbody>
       </table>
     </>
   );
