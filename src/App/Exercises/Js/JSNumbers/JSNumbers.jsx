@@ -22,12 +22,22 @@ export const JSNumbers = () => {
         <p>/ (int): {myInt / myInt}</p>
         <p>% (int): {myInt % myInt}</p>
         <p>** (int): {myInt ** myInt}</p>
+        <p>+ (float): {myFloat + myFloat}</p>
+        <p>- (float): {myFloat - myFloat}</p>
+        <p>* (float): {myFloat * myFloat}</p>
+        <p>/ (float): {myFloat / myFloat}</p>
+        <p>% (float): {myFloat % myFloat}</p>
+        <p>** (float): {myFloat ** myFloat}</p>
         <h3>Operatory złożone</h3>
         <p>+= (int): {`${(myInt += 2)}`}</p>
         <p>-= (int): {`${(myInt -= 1)}`}</p>
         <p>++i (int): {`${++myInt}`}</p>
         <p>--i (int): {`${--myInt}`}</p>
-        <h3>Operatory porównawcze</h3>
+        <p>+= (float): {`${(myFloat += 6)}`}</p>
+        <p>-= (float): {`${(myFloat -= 2)}`}</p>
+        <p>++i (float): {`${++myFloat}`}</p>
+        <p>--i (float): {`${--myFloat}`}</p>
+        <h3>Operatory porównawcze (w odniesieniu do liczby 3)</h3>
         <p>(int): {`<: ${myInt < 3}`}</p>
         <p>(int): {`<=: ${myInt <= 3}`}</p>
         <p>(int): {`>: ${myInt > 3}`}</p>
