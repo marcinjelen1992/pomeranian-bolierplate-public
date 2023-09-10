@@ -21,6 +21,10 @@ export const MathInJS = () => {
     setNumberB(event.target.value);
   }
 
+  function GetGrade(event) {
+    setGrade(event.target.value);
+  }
+
   const string1 = '{';
   const string2 = '}';
 
@@ -28,6 +32,77 @@ export const MathInJS = () => {
   const itIsANumber = isANumber(numberA * numberB);
   console.log(numberA * numberB);
   console.log(itIsANumber);
+
+  const [grade, setGrade] = useState('');
+  const [stringGrade, setStringGrade] = useState('Brak wpisanej liczby');
+
+  function changeGradeToText() {
+    if (grade !== +grade) {
+      setStringGrade('Wpisano znak nie będący liczbą');
+    }
+    if (+grade > 9 || +grade < 0) {
+      setStringGrade('Wpisano liczbę poza przewidzianym zakresem');
+    }
+    if (+grade === 0) {
+      setStringGrade('Zero');
+    }
+    if (+grade === 1) {
+      setStringGrade('Jeden');
+    }
+    if (+grade === 2) {
+      setStringGrade('Dwa');
+    }
+    if (+grade === 3) {
+      setStringGrade('Trzy');
+    }
+    if (+grade === 4) {
+      setStringGrade('Cztery');
+    }
+    if (+grade === 5) {
+      setStringGrade('Pięć');
+    }
+    if (+grade === 6) {
+      setStringGrade('Sześć');
+    }
+    if (+grade === 7) {
+      setStringGrade('Siedem');
+    }
+    if (+grade === 8) {
+      setStringGrade('Osiem');
+    }
+    if (+grade === 9) {
+      setStringGrade('Dziewięć');
+    }
+  }
+
+  const [numberC, setNumberC] = useState('');
+  const [numberD, setNumberD] = useState('');
+
+  function GetC(event) {
+    setNumberC(event.target.value);
+  }
+
+  function GetD(event) {
+    setNumberD(event.target.value);
+  }
+  const [ownMaxNumber, setOwnMaxNumber] = useState(
+    'Nie wpisano żadnej wartości'
+  );
+
+  function ownMax() {
+    if (numberC !== +numberC) {
+      setOwnMaxNumber('Wpisano znak nie będący liczbą');
+    }
+    if (+numberC > +numberD) {
+      setOwnMaxNumber(numberC);
+    }
+    if (+numberC < +numberD) {
+      setOwnMaxNumber(numberD);
+    }
+    if (+numberC === +numberD) {
+      setOwnMaxNumber(numberC);
+    }
+  }
 
   return (
     <>
@@ -53,6 +128,17 @@ export const MathInJS = () => {
         {itIsANumber
           ? 'Wprowadzone wartości są liczbami'
           : 'Wpisano znak nie będący liczbą'}
+        <h3>Konwersja liczby na tekst w zakresie 0-9:</h3>
+        <input type="text" value={grade} onChange={GetGrade} />
+        <button onClick={changeGradeToText}>Kliknij by uzyskać tekst</button>
+        <p>{stringGrade}</p>
+        <h3>
+          Detekcja większej liczby spośród dwóch wpisanych (symulacja Math.max):
+        </h3>
+        <input type="text" value={numberC} onChange={GetC} />
+        <input type="text" value={numberD} onChange={GetD} />
+        <button onClick={ownMax}>Kliknij by sprawdzić</button>
+        <p>{ownMaxNumber}</p>
       </div>
     </>
   );

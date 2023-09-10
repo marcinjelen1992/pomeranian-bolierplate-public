@@ -3,11 +3,27 @@ import './styles.css';
 export const Dashboard = () => {
   return (
     <div className="dashboard">
-      <h1>Dashboard</h1>
-      <p>
-        Strona główna kursanta (o sobie, zdjęcie, opis narzędzi wykorzystywanych
-        na kursie oraz umejętności zdobytych na kursie)
-      </p>
+      <main>
+        <h1>Dashboard</h1>
+        <div>
+          <div>
+            <div>1</div>
+            <div>4</div>
+          </div>
+          <div>
+            <div>2</div>
+            <div>5</div>
+          </div>
+          <div>
+            <div>3</div>
+          </div>
+        </div>
+        <p>
+          Strona główna kursanta (o sobie, zdjęcie, opis narzędzi
+          wykorzystywanych na kursie oraz umejętności zdobytych na kursie)
+        </p>
+      </main>
+      <div>123</div>
     </div>
   );
 };

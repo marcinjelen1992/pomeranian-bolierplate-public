@@ -1,2 +1,15 @@
 .dashboard {
+    font-family: 'Montserrat',  sans-serif;
+    display: flex;
+}
+
+.dashboard > main > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.dashboard > div {
+    margin-top: 60px;
+    margin-right: 100px;
 }
