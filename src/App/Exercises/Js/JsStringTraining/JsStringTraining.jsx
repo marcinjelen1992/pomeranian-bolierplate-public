@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './styles.css';
 
 export const JsStringTraining = () => {
@@ -29,6 +30,12 @@ export const JsStringTraining = () => {
 
   // Nie używaj funkcji powyżej gdyż dodanie .toString() wywala błąd
 
+  const [numberA, setNumberA] = useState('');
+
+  function GetA(event) {
+    setNumberA(event.target.value);
+  }
+
   function isAnotherPalindrom(input) {
     const lowerInput = input.toLowerCase();
     const reversed = lowerInput.split('').reverse().join('');
@@ -44,6 +51,12 @@ export const JsStringTraining = () => {
       <p>ATCGCTA</p>
       <p>
         {isAnotherPalindrom('ATCGCTA')
+          ? 'Jest to palindrom'
+          : 'Nie jest to palindrom'}
+      </p>
+      <p>
+        <input type="text" value={numberA} onChange={GetA} />
+        {isAnotherPalindrom(numberA)
           ? 'Jest to palindrom'
           : 'Nie jest to palindrom'}
       </p>
