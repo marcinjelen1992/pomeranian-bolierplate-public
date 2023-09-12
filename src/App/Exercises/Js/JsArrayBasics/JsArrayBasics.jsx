@@ -31,7 +31,7 @@ export const JsArrayBasics = () => {
   // myArray.concat(myArray2)  /  [...myArray, ...myArray2] (dokleja do tablicy myArray zawartość tablicy myArray2 i zwraca ją jako nową tablicę)
 
   return (
-    <div className="js-string-conversion-page">
+    <div className="js-array-basic-page">
       <h3>Hello there</h3>
     </div>
   );
