@@ -12,6 +12,7 @@ export const JsArrayMethodsExercise = () => {
   const myArrayD = [1, 3, 4, 5, 6, 7, 9];
   const myArrayE = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const myArrayF = [1, 2, 3, 4, 5, 6, 15, 21, 33];
+  const myArrayG = [1, 2, 3, 4, 5, 9];
 
   function sameNumbers(array1, array2) {
     const commonElements = array1.filter((item) => array2.includes(item));
@@ -165,6 +166,26 @@ export const JsArrayMethodsExercise = () => {
 
   console.log(doubleCharacter(myArrayE));
   console.log(doubleCharacter(myArrayF));
+
+  function getArrayCount(input) {
+    const justArrayWords = input.split(' ');
+    const numberMap = justArrayWords.map((w) => w.length);
+    return numberMap;
+  }
+
+  console.log(getArrayCount('Welcome to Frontend'));
+
+  function isEvenSum(array1) {
+    const commonElements = array1.filter((item) => item % 2 === 0);
+    const sum = commonElements.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
+    const averageEven = sum;
+    return averageEven;
+  }
+
+  console.log(isEvenSum(myArrayG));
 
   return (
     <div className="js-array-methods-exercises-page">

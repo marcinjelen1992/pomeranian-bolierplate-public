@@ -57,12 +57,24 @@ export const JSNumbersTraining = () => {
   const [lessThanTen, setLessThanTen] = useState('');
   const [moreThanTen, setMoreThanTen] = useState('');
 
+  // Mój kod
+
   function getWords(input) {
-    const justwords = input.split(' ');
-    return justwords;
+    const justWords = input.split(' ');
+    return justWords;
   }
   console.log(getWords(text));
   // getWords tworzy array
+
+  function getArrayCount(input) {
+    const justArrayWords = input.split(' ');
+    const numberMap = justArrayWords.map((w) => w.length);
+    return numberMap;
+  }
+
+  console.log(getArrayCount(text));
+
+  // koniec mojego kodu
 
   function CharCountCheck() {
     if (charCount >= 10) {
