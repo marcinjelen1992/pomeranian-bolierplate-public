@@ -57,6 +57,13 @@ export const JSNumbersTraining = () => {
   const [lessThanTen, setLessThanTen] = useState('');
   const [moreThanTen, setMoreThanTen] = useState('');
 
+  function getWords(input) {
+    const justwords = input.split(' ');
+    return justwords;
+  }
+  console.log(getWords(text));
+  // getWords tworzy array
+
   function CharCountCheck() {
     if (charCount >= 10) {
       setLessThanTen(false);

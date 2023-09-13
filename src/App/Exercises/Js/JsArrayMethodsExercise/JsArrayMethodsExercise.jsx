@@ -9,8 +9,9 @@ export const JsArrayMethodsExercise = () => {
   const myArrayA = [1, 2, 3, 4, 5];
   const myArrayB = [3, 5, 7, 9];
   const myArrayC = [1, 2, 3, 4, 5, 6];
-  const myArrayD = [1, 3, 5, 7, 9];
+  const myArrayD = [1, 3, 4, 5, 6, 7, 9];
   const myArrayE = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const myArrayF = [1, 2, 3, 4, 5, 6, 15, 21, 33];
 
   function sameNumbers(array1, array2) {
     const commonElements = array1.filter((item) => array2.includes(item));
@@ -141,28 +142,29 @@ export const JsArrayMethodsExercise = () => {
   }
   console.log(toCamelCase('Hello world'));
 
-  function isEven(array1, array2) {
-    const commonElements = array1.filter((item) => !array2.includes(item));
+  function isEven(array1) {
+    const commonElements = array1.filter((item) => item % 2 === 0);
     return commonElements;
   }
 
-  console.log(isEven(myArrayE, myArrayD));
+  console.log(isEven(myArrayE));
 
-  function doubleCharacter(str) {
-    const words = str.split(/[ \-_]/);
-    const camelCaseWords = words.map((word, index) => {
-      if (index === 0) {
-        return word.toLowerCase();
-      } else {
-        return word.charAt(0).toUpperCase() + word.charAt(0);
-      }
-    });
-    return camelCaseWords.join('');
+  function isOdd(array1) {
+    const commonElements = array1.filter((item) => item % 2 !== 0);
+    return commonElements;
   }
 
-  console.log(doubleCharacter('Hello world'));
+  console.log(isOdd(myArrayD));
 
-  // zdublowało w ze słowa world. Czy użyć slice? Czy użyć iterację?
+  function doubleCharacter(array) {
+    const mappedValue = array.map((value) => value);
+    const doubled = mappedValue.concat(mappedValue);
+    const doubleSorted = doubled.sort();
+    return doubleSorted;
+  }
+
+  console.log(doubleCharacter(myArrayE));
+  console.log(doubleCharacter(myArrayF));
 
   return (
     <div className="js-array-methods-exercises-page">
