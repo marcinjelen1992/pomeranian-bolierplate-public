@@ -86,8 +86,6 @@ export const JSNumbersTraining = () => {
     }
   }
 
-  // To nie działa, czy brakuje && strong?
-
   return (
     <div>
       JS Numbers Training

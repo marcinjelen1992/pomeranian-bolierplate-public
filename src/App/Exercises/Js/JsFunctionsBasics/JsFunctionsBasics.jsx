@@ -4,6 +4,7 @@
 // import { add } from './math'; to zaimportuje tylko konkretne funkcje z pliku math.js -> import waży mniej ok 1kb
 import './styles.css';
 import * as math from './math.js';
+import { useState } from 'react';
 
 export const JsFunctionsBasics = () => {
   // 1 Declaration - Named functions
@@ -150,9 +151,118 @@ export const JsFunctionsBasics = () => {
   }
   console.log('sort', sort(1, 11, 13, 4, 5, 6, 7, 8));
 
+  // funkcja sortowanie tablicy z zapodaniem wyniku jako nowy array, bez modyfikacji oryginalnego
+
+  const originalArr = [1, 3, 2];
+  // const sortImmune = (arr) => [...arr].sort((a, b) => a - b);
+  const sortImmune = (arr) => arr.slice().sort((a, b) => a - b);
+
+  const sortedArr = sortImmune(originalArr);
+  console.log({
+    originalArr, // [1, 3, 2]
+    sortedArr, // [1, 2, 3]
+  });
+
+  function countOccurence(target) {
+    if (typeof target !== 'number') {
+      return () => 'Złe wejście';
+    }
+    return (...numbers) => {
+      let count = 0;
+      for (const num of numbers) {
+        if (typeof num === 'number' && num === target) {
+          count++;
+        }
+      }
+      return count;
+    };
+  }
+
+  console.log('ZliczWystapienia', countOccurence(1)(1, 1, 2, 3, 5, 7, 8, 1));
+
+  const [numberA, setNumberA] = useState('');
+  const [numberB, setNumberB] = useState('');
+  const [operatorA, setOperatorA] = useState('');
+  const [resultA, setResultA] = useState('');
+
+  function GetA(event) {
+    setNumberA(event.target.value);
+  }
+
+  function GetB(event) {
+    setNumberB(event.target.value);
+  }
+
+  function GetOperatorA(event) {
+    setOperatorA(event.target.value);
+  }
+
+  function Calculate() {
+    if (operatorA === '+') {
+      setResultA(numberA + numberB);
+    } else if (operatorA === '-') {
+      setResultA(numberA - numberB);
+    } else if (operatorA === '*') {
+      setResultA(numberA * numberB);
+    } else if (operatorA === '/') {
+      setResultA(numberA / numberB);
+    }
+  }
+  function calculateWithChar(operator) {
+    return (num1, num2) => {
+      if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+        return 'złe wejscie';
+      }
+      switch (operator) {
+        case '+':
+          return num1 + num2;
+        case '-':
+          return num1 - num2;
+        case '*':
+          return num1 * num2;
+        case '/':
+          return num1 / num2;
+        default:
+          return 'zły znak';
+      }
+    };
+  }
+  console.log('calculateWithChar', calculateWithChar('+')(6, 7));
+  console.log('calculateWithChar', calculateWithChar('*')(6, 7));
   return (
     <>
       <div>JS functions basics</div>
+      <p>
+        Operacja matematyczne z wyborem operatora (+(nie działa poprawnie), -,
+        *, /){' '}
+      </p>
+      <input
+        type="text"
+        value={numberA}
+        onChange={GetA}
+        placeholder="Pierwsza liczba"
+      />
+      <input
+        type="text"
+        value={operatorA}
+        onChange={GetOperatorA}
+        placeholder="Operator"
+      />
+      <input
+        type="text"
+        value={numberB}
+        onChange={GetB}
+        placeholder="Druga liczba"
+      />
+      <button onClick={Calculate}>Oblicz</button>
+
+      <p>
+        <strong>
+          {numberA}
+          {operatorA}
+          {numberB} = {resultA}
+        </strong>
+      </p>
     </>
   );
 };
