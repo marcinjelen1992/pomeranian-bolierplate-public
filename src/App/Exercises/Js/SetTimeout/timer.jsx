@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 // setInterval
 // Jest używana do cyklicznego wykonywania pewnych operacji w określonych odstępach czasu
@@ -33,6 +33,33 @@ export const Timer = () => {
     );
   };
 
+  const [czas, setCzas] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+  // { ? : } ternary operator
+  const toogleTimer = () => {
+    setIsRunning(!isRunning);
+  };
+
+  useEffect(() => {
+    let timerInterval;
+    if (isRunning) {
+      timerInterval = setInterval(() => {
+        setCzas((prev) => prev + 1);
+      }, 1000);
+    } else {
+      clearInterval(timerInterval);
+    }
+    return () => {
+      clearInterval(timerInterval);
+    };
+  }, [isRunning]);
+
+  // w powyższej funkcji ten return i powtórzenie clearInterwval to funkcja zwrotna
+
+  const restartTimer = () => {
+    setCzas(0);
+  };
+
   return (
     <div>
       <div>
@@ -48,6 +75,12 @@ export const Timer = () => {
       <div>
         Jeśli chcesz uniknąć pojawienia się alertu to po naciśnięciu setTimeout
         button masz 4 sekundy na anulowanie tego przez ClearTimeout
+      </div>
+      <div>
+        <h1>Timer</h1>
+        <h2>{`${czas} sec`}</h2>
+        <button onClick={toogleTimer}>{isRunning ? 'Stop' : 'Start'}</button>
+        <button onClick={restartTimer}>Restart</button>
       </div>
     </div>
   );
