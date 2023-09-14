@@ -199,13 +199,13 @@ export const JsFunctionsBasics = () => {
 
   function Calculate() {
     if (operatorA === '+') {
-      setResultA(numberA + numberB);
+      setResultA(+numberA + +numberB);
     } else if (operatorA === '-') {
-      setResultA(numberA - numberB);
+      setResultA(+numberA - +numberB);
     } else if (operatorA === '*') {
-      setResultA(numberA * numberB);
+      setResultA(+numberA * +numberB);
     } else if (operatorA === '/') {
-      setResultA(numberA / numberB);
+      setResultA(+numberA / +numberB);
     }
   }
   function calculateWithChar(operator) {
@@ -232,10 +232,7 @@ export const JsFunctionsBasics = () => {
   return (
     <>
       <div>JS functions basics</div>
-      <p>
-        Operacja matematyczne z wyborem operatora (+(nie działa poprawnie), -,
-        *, /){' '}
-      </p>
+      <p>Operacja matematyczne z wyborem operatora (+, -, *, /) </p>
       <input
         type="text"
         value={numberA}
