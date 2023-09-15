@@ -298,6 +298,55 @@ export const JsFunctionsBasics = () => {
 
   console.log(longestWord(['numStr', 'something', 'najdluzszyWyraz']));
 
+  const myArrayB = [3, 8, 5, 7];
+
+  console.log(
+    'pozycja w indeksie dla liczby 7 w myArrayB',
+    myArrayB.indexOf(7)
+  );
+
+  function getIndexOfMaxInArrayCount(input) {
+    const justArrayWordsToBeProcessedHere = input.split(' ');
+    const numberMapReferenceArray = justArrayWordsToBeProcessedHere.map(
+      (w) => w.length
+    );
+    const maxInArrayValue = numberMapReferenceArray.reduce(
+      (a, b) => Math.max(a, b),
+      -Infinity
+    );
+    return numberMapReferenceArray.indexOf(maxInArrayValue);
+  }
+
+  console.log(
+    'pozycja w indeksie dla najdłuższego wyrazu',
+    getIndexOfMaxInArrayCount(
+      'Dzień dobry czy chcesz porozmawiać o frontendzie?'
+    )
+  );
+
+  function getItemFromIndexOfMaxInArrayCount(input) {
+    const justArrayWordsToBeProcessedHereAndBeReferenced = input.split(' ');
+    const numberMapReferenceArrayOfNumbers =
+      justArrayWordsToBeProcessedHereAndBeReferenced.map((w) => w.length);
+    const maxInArrayValueNumber = numberMapReferenceArrayOfNumbers.reduce(
+      (a, b) => Math.max(a, b),
+      -Infinity
+    );
+    const ofTheLongestIndexValue = numberMapReferenceArrayOfNumbers.indexOf(
+      maxInArrayValueNumber
+    );
+    const theLongest =
+      justArrayWordsToBeProcessedHereAndBeReferenced[ofTheLongestIndexValue];
+    return theLongest;
+  }
+
+  console.log(
+    'Return najdłuższego wyrazu z podanego stringa',
+    getItemFromIndexOfMaxInArrayCount(
+      'Dzień dobry czy chcesz porozmawiać o frontendzie?'
+    )
+  );
+
   return (
     <>
       <div>JS functions basics</div>

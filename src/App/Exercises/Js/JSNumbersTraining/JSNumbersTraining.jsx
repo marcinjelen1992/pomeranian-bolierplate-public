@@ -96,6 +96,20 @@ export const JSNumbersTraining = () => {
     return maxInArray;
   }
 
+  function getItemFromIndexOfMax(input) {
+    const wordsToBeSplitAndReferencedAgain = input.split(' ');
+    const referenceArrayOfNumbers = wordsToBeSplitAndReferencedAgain.map(
+      (w) => w.length
+    );
+    const inArrayMax = referenceArrayOfNumbers.reduce(
+      (a, b) => Math.max(a, b),
+      -Infinity
+    );
+    const ofTheLongestIndexValue = referenceArrayOfNumbers.indexOf(inArrayMax);
+    const theLongest = wordsToBeSplitAndReferencedAgain[ofTheLongestIndexValue];
+    return theLongest;
+  }
+
   return (
     <div>
       JS Numbers Training
@@ -113,6 +127,7 @@ export const JSNumbersTraining = () => {
             Character Count (Including Whitespaces): {charCount}
           </p>
           <p>Character Count of the longest word: {getMaxInArrayCount(text)}</p>
+          <p>The longest word is: {getItemFromIndexOfMax(text)}</p>
           <p>
             Is this string shorter than 10 characters?{' '}
             <button onClick={CharCountCheck}>Click to find out</button>
