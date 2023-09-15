@@ -1,4 +1,5 @@
 import './styles.css';
+import { PersonalCardIcon } from '../Components/Icons/PersonalCardIcon';
 
 export const Dashboard = () => {
   return (
@@ -7,7 +8,9 @@ export const Dashboard = () => {
         <h1>Dashboard</h1>
         <div>
           <div>
-            <div>1</div>
+            <div>
+              1<PersonalCardIcon />
+            </div>
             <div>4</div>
           </div>
           <div>

@@ -86,6 +86,16 @@ export const JSNumbersTraining = () => {
     }
   }
 
+  function getMaxInArrayCount() {
+    const justArrayWordsToBeProcessed = text.split(' ');
+    const numberMapReference = justArrayWordsToBeProcessed.map((w) => w.length);
+    const maxInArray = numberMapReference.reduce(
+      (a, b) => Math.max(a, b),
+      -Infinity
+    );
+    return maxInArray;
+  }
+
   return (
     <div>
       JS Numbers Training
@@ -102,6 +112,7 @@ export const JSNumbersTraining = () => {
           <p className="char-count">
             Character Count (Including Whitespaces): {charCount}
           </p>
+          <p>Character Count of the longest word: {getMaxInArrayCount(text)}</p>
           <p>
             Is this string shorter than 10 characters?{' '}
             <button onClick={CharCountCheck}>Click to find out</button>

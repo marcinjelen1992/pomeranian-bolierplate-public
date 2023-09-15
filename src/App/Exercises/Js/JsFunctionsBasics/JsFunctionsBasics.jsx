@@ -229,6 +229,75 @@ export const JsFunctionsBasics = () => {
   }
   console.log('calculateWithChar', calculateWithChar('+')(6, 7));
   console.log('calculateWithChar', calculateWithChar('*')(6, 7));
+
+  function fibonacciOne(howManyNumbers) {
+    let arr = [0, 1];
+
+    for (let i = 2; i < howManyNumbers; i++) {
+      arr.push(arr[arr.length - 1] + arr[arr.length - 2]);
+    }
+
+    return arr;
+  }
+
+  console.log('Fibonacci w pętli', fibonacciOne(10));
+
+  const fibonacciTwo = (n) => {
+    if (n <= 0) return 0;
+    if (n === 1) return 1;
+    return fibonacciTwo(n - 1) + fibonacciTwo(n - 2);
+  };
+
+  console.log('Fibonacci z rekurancją', fibonacciTwo(10));
+
+  function getWords(input) {
+    const justWords = input.split(' ');
+    return justWords;
+  }
+  console.log(getWords('Hello darkness my old friend'));
+
+  function getArrayCount(input) {
+    const justArrayWords = input.split(' ');
+    const numberMap = justArrayWords.map((w) => w.length);
+    return numberMap;
+  }
+
+  console.log(getArrayCount('Hello darkness my old friend'));
+
+  const myArrayA = [5, 6, 2, 3];
+
+  function findMaxInArray(array) {
+    const max = array.reduce((a, b) => Math.max(a, b), -Infinity);
+    return max;
+  }
+
+  console.log('Największa wartość w myArrayA', findMaxInArray(myArrayA));
+
+  function getMaxInArrayCount(input) {
+    const justArrayWordsToBeProcessed = input.split(' ');
+    const numberMapReference = justArrayWordsToBeProcessed.map((w) => w.length);
+    const maxInArray = numberMapReference.reduce(
+      (a, b) => Math.max(a, b),
+      -Infinity
+    );
+    return maxInArray;
+  }
+
+  console.log(
+    'Największa wartość w inpucie',
+    getMaxInArrayCount('Hello darkness my old friend')
+  );
+
+  function longestWord(array) {
+    const longest = array.reduce((longest, curr) => {
+      if (curr.length > longest.length) return curr;
+      else return longest;
+    });
+    return longest;
+  }
+
+  console.log(longestWord(['numStr', 'something', 'najdluzszyWyraz']));
+
   return (
     <>
       <div>JS functions basics</div>
