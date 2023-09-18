@@ -1,0 +1,55 @@
+.molegamewrapper {
+    font-family: 'Montserrat',  sans-serif;
+    margin: 24px;
+}
+
+.molegame {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+}
+
+.informationboard {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    gap: 38px;
+}
+.informationboard > div {
+    height: 56px;
+    font-weight: 800;
+}
+
+.playingboard {
+    margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 38px;
+}
+
+.button_nr1 {
+    font-family: 'Montserrat',  sans-serif;
+    width: 163px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 31px;
+    border-radius: 8px;
+    background-color: #23213D;
+    color: #fff;
+    border-color: #23213D;
+}
+
+.button_nr2 {
+    font-family: 'Montserrat',  sans-serif;
+    width: 163px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 31px;
+    border-radius: 8px;
+    background-color: #FE3756;
+    color: #fff;
+    border-color: #FE3756;
+}
+
