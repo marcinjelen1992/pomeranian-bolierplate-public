@@ -37,20 +37,23 @@ export const AnimationsJs = () => {
 
   // koncept, fading zaczyna się po naciśnięciu przycisku ON, a naciśnięcie OFF zatrzymuje, ale jak się nie zatrzyma przed 0 to opacity idzie w ujemne
   useEffect(() => {
-    let interval;
-    if (isAnimated > 0) {
-      interval = setInterval(() => {
-        setOpacity((prev) => prev - 0.005);
-      }, 50);
-    } else {
-      clearInterval(interval);
+    if (isAnimated) {
+      let interval;
+      if (opacity > 0) {
+        interval = setInterval(() => {
+          setOpacity((prev) => prev - 0.005);
+        }, 50);
+      } else {
+        clearInterval(interval);
+      }
+      return () => {
+        clearInterval(interval);
+      };
     }
-    return () => {
-      clearInterval(interval);
-    };
-  }, [isAnimated]);
+  }, [isAnimated, opacity]);
 
-  // TODO: podłącz przycisk by włączał i wyłączał
+  // TODO: Zasadniczo działa jak trzeba, stopuje na -8.20524e-16, w ifie w linii 42 pokombinuj tak by nie stopowało na wartości ujemnej
+  // Tu chodzi coś z zapętleniem między 44, a 42
   return (
     <>
       <div>
