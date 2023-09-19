@@ -3,43 +3,41 @@ import { useState, useEffect } from 'react';
 
 export const HitTheMoleGameProper = () => {
   const DEFAULT_MOLE_GAME = [
-    { name: 'oneminute', mole: 'onemole', isHighlighted: false },
-    { name: 'twominutes', mole: 'twomoles', isHighlighted: false },
-    { name: 'threeminutes', mole: 'threemoles', isHighlighted: false },
+    {
+      time: '1 minuta',
+      mole: '1 kret',
+      isHighlightedTime: false,
+      isHighlightedMole: false,
+    },
+    {
+      time: '2 minuty',
+      mole: '2 krety',
+      isHighlightedTime: false,
+      isHighlightedMole: false,
+    },
+    {
+      time: '3 minuty',
+      mole: '3 krety',
+      isHighlightedTime: false,
+      isHighlightedMole: false,
+    },
   ];
 
   const [items, setItems] = useState(DEFAULT_MOLE_GAME);
   console.log(items);
-
-  //  const handleClick = (event) => {
-  //    setItems(
-  //      items.map((item) => {
-  //        if (item.time === event.target.id) {
-  //          return { ...item, isHighlighted: true };
-  //        } else {
-  //          return item;
-  //       }
-  //      })
-  //    );
-  //  };
-
-  //  const handleClick = (event) => {
-  //    setItemTime((prev) => ({
-  //      ...prev,
-  //      [event.target.name]: event.target.value,
-  //    }));
-  //  };
 
   const [isChangeBckgr, setIsChangeBckgr] = useState(false);
   function handleClick() {
     setIsChangeBckgr(!isChangeBckgr);
   }
 
-  const handleClickMap = (event) => {
+  // Przestawiacz isHighlightedTime z false na true
+
+  const handleClickTimeMap = (event) => {
     setItems(
       items.map((item) => {
-        if (item.name === event.target.id) {
-          return { ...item, isHighlighted: true };
+        if (item.time === event.target.id) {
+          return { ...item, isHighlightedTime: true };
         } else {
           return item;
         }
@@ -47,21 +45,31 @@ export const HitTheMoleGameProper = () => {
     );
   };
 
-  function getNames(obj) {
-    return obj.map(({ isHighlighted }) => isHighlighted);
+  function getTimes(obj) {
+    return obj.map(({ isHighlightedTime }) => isHighlightedTime);
   }
-  console.log(getNames(items));
+  console.log('Boolean dla Time', getTimes(items));
 
-  // const handleClick = (event) => {
-  //  setItems((item) => {
-  //      if (item.name === event.target.id) {
-  //        return {setIsChangeBckgr: true };
-  //     } else {
-  //       return setIsChangeBckgr: false;
-  //      }
-  //    })
-  //  ;
-  //};
+  // Przestawiacz isHighlightedMole z false na true
+
+  const handleClickMoleMap = (event) => {
+    setItems(
+      items.map((item) => {
+        if (item.mole === event.target.id) {
+          return { ...item, isHighlightedMole: true };
+        } else {
+          return item;
+        }
+      })
+    );
+  };
+
+  function getMoles(obj) {
+    return obj.map(({ isHighlightedMole }) => isHighlightedMole);
+  }
+  console.log('Boolean dla Mole', getMoles(items));
+
+  // TODO
 
   return (
     <div className="molegamewrapper">
@@ -79,20 +87,7 @@ export const HitTheMoleGameProper = () => {
         </div>
         <div className="playingboard">
           <div>
-            {items.map((item) => (
-              <button
-                key={item.name}
-                data-highlighted={item.isHighlighted}
-                id={item.name}
-                onClick={handleClickMap}
-              >
-                {item.name}
-              </button>
-            ))}
             <button
-              key={DEFAULT_MOLE_GAME.oneminute}
-              data-highlighted={DEFAULT_MOLE_GAME.isHighlighted}
-              id={DEFAULT_MOLE_GAME.oneminute}
               className={isChangeBckgr ? 'button_nr2' : 'button_nr1'}
               onClick={handleClick}
             >
@@ -152,6 +147,40 @@ export const HitTheMoleGameProper = () => {
             </button>
           </div>
         </div>
+        <p>
+          Po lewej buttony osadzone klasycznie, działa flex lecz nie oddziałują
+          z array.
+          <strong>
+            Po prawej buttony z array.map, zmieniają false na true.
+          </strong>
+        </p>
+
+        {items.map((item) => (
+          <div className="playingboard">
+            <div>
+              <button
+                key={item.time}
+                data-highlighted={item.isHighlightedTime}
+                id={item.time}
+                className={item.isHighlightedTime ? 'button_nr2' : 'button_nr1'}
+                onClick={handleClickTimeMap}
+              >
+                {item.time}
+              </button>
+            </div>
+            <div>
+              <button
+                key={item.mole}
+                data-highlighted={item.isHighlightedMole}
+                id={item.mole}
+                className={item.isHighlightedMole ? 'button_nr2' : 'button_nr1'}
+                onClick={handleClickMoleMap}
+              >
+                {item.mole}
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
