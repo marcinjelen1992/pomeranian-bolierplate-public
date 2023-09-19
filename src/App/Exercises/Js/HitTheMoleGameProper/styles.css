@@ -29,6 +29,11 @@
     gap: 38px;
 }
 
+.arraymaprow {
+    display: flex;
+    flex-direction: row;
+}
+
 .button_nr1 {
     font-family: 'Montserrat',  sans-serif;
     width: 163px;
