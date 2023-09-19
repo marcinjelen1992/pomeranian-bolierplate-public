@@ -25,13 +25,14 @@
     margin-right: 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 38px;
 }
 
 .arraymaprow {
     display: flex;
     flex-direction: row;
+    gap: 20px;
 }
 
 .button_nr1 {
@@ -58,3 +59,31 @@
     border-color: #FE3756;
 }
 
+.button_nr3 {
+    font-family: 'Montserrat',  sans-serif;
+    width: 163px;
+    height: 56px;
+    font-size: 18px;
+    line-height: 31px;
+    border-radius: 8px;
+    background-color: #EBEBEB;
+    color: #000000;
+    border-color: #EBEBEB;
+}
+
+.div-of-boxes {
+    display: flex;
+    gap: 8px;
+}
+
+.screen-two-box {
+    width: 100px;
+    height: 100px;
+    background: #EBEBEB;
+    border-radius: 8px;
+}
+
+.screen-two-box > :first-child {
+    margin-top: 16px;
+    margin-left: 4px;
+}

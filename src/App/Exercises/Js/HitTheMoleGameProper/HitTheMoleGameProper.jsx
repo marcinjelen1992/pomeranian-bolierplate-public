@@ -1,5 +1,6 @@
 import './styles.css';
 import { useState, useEffect } from 'react';
+import { HitTheMoleGameScreenTwo } from './HitTheMoleGameScreenTwo.jsx';
 
 export const HitTheMoleGameProper = () => {
   const DEFAULT_MOLE_GAME_TIME = [
@@ -148,6 +149,8 @@ export const HitTheMoleGameProper = () => {
           </div>
         </div>
       </div>
+      <p>Poniżej ekran drugi będący osobnym komponentem</p>
+      <HitTheMoleGameScreenTwo />
     </div>
   );
 };
