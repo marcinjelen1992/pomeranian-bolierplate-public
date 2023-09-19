@@ -88,7 +88,55 @@ export const HitTheMoleGameProper = () => {
   }
   console.log('Boolean dla Mole', getMoles(itemsMole));
 
-  // TODO
+  // Funkcja do podpięcia pod przycisk START
+
+  function getTheStartData(input1, input2) {
+    const inputOneBooleanMap = input1.map(
+      ({ isHighlightedTime }) => isHighlightedTime
+    );
+    const inputTwoBooleanMap = input2.map(
+      ({ isHighlightedMole }) => isHighlightedMole
+    );
+    const concatenatedMap = inputOneBooleanMap.concat(inputTwoBooleanMap);
+    if (concatenatedMap[0] === true && concatenatedMap[3] === true) {
+      return 'Zaznaczono 1 minutę i 1 kreta';
+    }
+    if (concatenatedMap[0] === true && concatenatedMap[4] === true) {
+      return 'Zaznaczono 1 minutę i 2 krety';
+    }
+    if (concatenatedMap[0] === true && concatenatedMap[5] === true) {
+      return 'Zaznaczono 1 minutę i 3 krety';
+    }
+    if (concatenatedMap[1] === true && concatenatedMap[3] === true) {
+      return 'Zaznaczono 2 minuty i 1 kreta';
+    }
+    if (concatenatedMap[1] === true && concatenatedMap[4] === true) {
+      return 'Zaznaczono 2 minuty i 2 krety';
+    }
+    if (concatenatedMap[1] === true && concatenatedMap[5] === true) {
+      return 'Zaznaczono 2 minuty i 3 krety';
+    }
+    if (concatenatedMap[2] === true && concatenatedMap[3] === true) {
+      return 'Zaznaczono 3 minuty i 1 kreta';
+    }
+    if (concatenatedMap[2] === true && concatenatedMap[4] === true) {
+      return 'Zaznaczono 3 minuty i 2 krety';
+    }
+    if (concatenatedMap[2] === true && concatenatedMap[5] === true) {
+      return 'Zaznaczono 3 minuty i 3 krety';
+    } else {
+      return 'Nie zaznaczono obu opcji';
+    }
+  }
+
+  console.log(
+    'Komunikat z arraya Booleanów:',
+    getTheStartData(itemsTime, itemsMole)
+  );
+  // TODO: Zmień klasy button_nr2 na button, a button_nr1 na highlightedButton a moleGame i inne camelem, plus miej konsekwentne nazwy
+  // className={isHighlightedTime ? 'button_nr2' : 'button_nr1'} zmień żeby zrobić funkcję przełączającą i w klamrowych odwołać się do funkcji
+  // jak masz {itemsTime.map(({ time, isHighlightedTime }) => ( to zrób analogiczną zmianę dla mole
+  // zawartość tego co jest tutaj przenieś do innego komponentu
 
   return (
     <div className="molegamewrapper">
@@ -106,18 +154,16 @@ export const HitTheMoleGameProper = () => {
         </div>
         <div className="playingboard">
           <div className="arraymaprow">
-            {itemsTime.map((item) => (
+            {itemsTime.map(({ time, isHighlightedTime }) => (
               <div>
                 <button
-                  key={item.time}
-                  data-highlighted={item.isHighlightedTime}
-                  id={item.time}
-                  className={
-                    item.isHighlightedTime ? 'button_nr2' : 'button_nr1'
-                  }
+                  key={time}
+                  data-highlighted={isHighlightedTime}
+                  id={time}
+                  className={isHighlightedTime ? 'button_nr2' : 'button_nr1'}
                   onClick={handleClickTimeMap}
                 >
-                  {item.time}
+                  {time}
                 </button>
               </div>
             ))}
