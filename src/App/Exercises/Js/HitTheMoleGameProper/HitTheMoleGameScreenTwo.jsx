@@ -7,27 +7,29 @@ export const HitTheMoleGameScreenTwo = () => {
   function handleClick() {
     setIsChangeBckgr(!isChangeBckgr);
   }
-
+  // 7:42 i 16 zrób jako divy, nie buttony
   return (
-    <div className="molegamescreentwowrapper">
-      <div className="molegame">
+    <div className="moleGameScreenTwoWrapper">
+      <div className="moleGame">
         <div>
-          <div className="informationboard">
+          <div className="informationBoard">
             <div>CZAS DO KOŃCA</div>
             <div>WYNIK</div>
             <div>PRZYCISKI STERUJĄCE</div>
           </div>
         </div>
-        <div className="playingboard">
+        <div className="playingBoard">
           <div>
-            <button className="button_nr3">7:42</button>
+            <button className="div_gray">7:42</button>
           </div>
           <div>
-            <button className="button_nr3">16</button>
+            <button className="div_gray">16</button>
           </div>
           <div>
             <button
-              className={isChangeBckgr ? 'button_nr1' : 'button_nr2'}
+              className={
+                isChangeBckgr ? 'button_game' : 'button_game_highlighted'
+              }
               onClick={handleClick}
             >
               STOP

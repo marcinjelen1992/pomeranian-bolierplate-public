@@ -1,27 +1,27 @@
-.molegamewrapper {
+.moleGameWrapper {
     font-family: 'Montserrat',  sans-serif;
     margin: 24px;
 }
 
-.molegame {
+.moleGame {
     margin-top: 24px;
     display: flex;
     flex-direction: row;
 }
 
-.informationboard {
+.informationBoard {
     width: 250px;
     display: flex;
     flex-direction: column;
     align-content: flex-start;
     gap: 38px;
 }
-.informationboard > div {
+.informationBoard > div {
     height: 56px;
     font-weight: 800;
 }
 
-.playingboard {
+.playingBoard {
     margin-right: 24px;
     display: flex;
     flex-direction: column;
@@ -29,13 +29,13 @@
     gap: 38px;
 }
 
-.arraymaprow {
+.arrayRowOfButtons {
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
 
-.button_nr1 {
+.button_game {
     font-family: 'Montserrat',  sans-serif;
     width: 163px;
     height: 56px;
@@ -47,7 +47,7 @@
     border-color: #23213D;
 }
 
-.button_nr2 {
+.button_game_highlighted {
     font-family: 'Montserrat',  sans-serif;
     width: 163px;
     height: 56px;
@@ -59,7 +59,7 @@
     border-color: #FE3756;
 }
 
-.button_nr3 {
+.div_gray {
     font-family: 'Montserrat',  sans-serif;
     width: 163px;
     height: 56px;

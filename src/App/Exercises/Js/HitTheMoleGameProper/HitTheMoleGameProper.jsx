@@ -1,200 +1,21 @@
 import './styles.css';
 import { useState, useEffect } from 'react';
+import { HitTheMoleGameScreenOne } from './HitTheMoleGameScreenOne.jsx';
 import { HitTheMoleGameScreenTwo } from './HitTheMoleGameScreenTwo.jsx';
 
 export const HitTheMoleGameProper = () => {
-  const DEFAULT_MOLE_GAME_TIME = [
-    {
-      time: '1 minuta',
-
-      isHighlightedTime: false,
-    },
-    {
-      time: '2 minuty',
-
-      isHighlightedTime: false,
-    },
-    {
-      time: '3 minuty',
-
-      isHighlightedTime: false,
-    },
-  ];
-
-  const [itemsTime, setItemsTime] = useState(DEFAULT_MOLE_GAME_TIME);
-  console.log(itemsTime);
-
-  const DEFAULT_MOLE_GAME_MOLE = [
-    {
-      mole: '1 kret',
-
-      isHighlightedMole: false,
-    },
-    {
-      mole: '2 krety',
-
-      isHighlightedMole: false,
-    },
-    {
-      mole: '3 krety',
-
-      isHighlightedMole: false,
-    },
-  ];
-
-  const [itemsMole, setItemsMole] = useState(DEFAULT_MOLE_GAME_MOLE);
-  console.log(itemsMole);
-
-  const [isChangeBckgr, setIsChangeBckgr] = useState(false);
-  function handleClick() {
-    setIsChangeBckgr(!isChangeBckgr);
-  }
-
-  // Przestawiacz isHighlightedTime z false na true
-
-  const handleClickTimeMap = (event) => {
-    setItemsTime(
-      itemsTime.map((item) => {
-        if (item.time === event.target.id) {
-          return { ...item, isHighlightedTime: true };
-        } else {
-          return { ...item, isHighlightedTime: false };
-        }
-      })
-    );
-  };
-
-  function getTimes(obj) {
-    return obj.map(({ isHighlightedTime }) => isHighlightedTime);
-  }
-  console.log('Boolean dla Time', getTimes(itemsTime));
-
-  // Przestawiacz isHighlightedMole z false na true
-
-  const handleClickMoleMap = (event) => {
-    setItemsMole(
-      itemsMole.map((item) => {
-        if (item.mole === event.target.id) {
-          return { ...item, isHighlightedMole: true };
-        } else {
-          return { ...item, isHighlightedMole: false };
-        }
-      })
-    );
-  };
-
-  function getMoles(obj) {
-    return obj.map(({ isHighlightedMole }) => isHighlightedMole);
-  }
-  console.log('Boolean dla Mole', getMoles(itemsMole));
-
-  // Funkcja do podpięcia pod przycisk START
-
-  function getTheStartData(input1, input2) {
-    const inputOneBooleanMap = input1.map(
-      ({ isHighlightedTime }) => isHighlightedTime
-    );
-    const inputTwoBooleanMap = input2.map(
-      ({ isHighlightedMole }) => isHighlightedMole
-    );
-    const concatenatedMap = inputOneBooleanMap.concat(inputTwoBooleanMap);
-    if (concatenatedMap[0] === true && concatenatedMap[3] === true) {
-      return 'Zaznaczono 1 minutę i 1 kreta';
-    }
-    if (concatenatedMap[0] === true && concatenatedMap[4] === true) {
-      return 'Zaznaczono 1 minutę i 2 krety';
-    }
-    if (concatenatedMap[0] === true && concatenatedMap[5] === true) {
-      return 'Zaznaczono 1 minutę i 3 krety';
-    }
-    if (concatenatedMap[1] === true && concatenatedMap[3] === true) {
-      return 'Zaznaczono 2 minuty i 1 kreta';
-    }
-    if (concatenatedMap[1] === true && concatenatedMap[4] === true) {
-      return 'Zaznaczono 2 minuty i 2 krety';
-    }
-    if (concatenatedMap[1] === true && concatenatedMap[5] === true) {
-      return 'Zaznaczono 2 minuty i 3 krety';
-    }
-    if (concatenatedMap[2] === true && concatenatedMap[3] === true) {
-      return 'Zaznaczono 3 minuty i 1 kreta';
-    }
-    if (concatenatedMap[2] === true && concatenatedMap[4] === true) {
-      return 'Zaznaczono 3 minuty i 2 krety';
-    }
-    if (concatenatedMap[2] === true && concatenatedMap[5] === true) {
-      return 'Zaznaczono 3 minuty i 3 krety';
-    } else {
-      return 'Nie zaznaczono obu opcji';
-    }
-  }
-
-  console.log(
-    'Komunikat z arraya Booleanów:',
-    getTheStartData(itemsTime, itemsMole)
-  );
   // TODO: Zmień klasy button_nr2 na button, a button_nr1 na highlightedButton a moleGame i inne camelem, plus miej konsekwentne nazwy
   // className={isHighlightedTime ? 'button_nr2' : 'button_nr1'} zmień żeby zrobić funkcję przełączającą i w klamrowych odwołać się do funkcji
   // jak masz {itemsTime.map(({ time, isHighlightedTime }) => ( to zrób analogiczną zmianę dla mole
   // zawartość tego co jest tutaj przenieś do innego komponentu
 
   return (
-    <div className="molegamewrapper">
+    <div className="moleGameWrapper">
       <p>
         Gra polegająca na podążaniu za krecikiem i trafieniu na kwadrat, w
         którym się pojawił.
       </p>
-      <div className="molegame">
-        <div>
-          <div className="informationboard">
-            <div>CZAS GRY</div>
-            <div>LICZBA KRETÓW</div>
-            <div>PRZYCISKI STERUJĄCE</div>
-          </div>
-        </div>
-        <div className="playingboard">
-          <div className="arraymaprow">
-            {itemsTime.map(({ time, isHighlightedTime }) => (
-              <div>
-                <button
-                  key={time}
-                  data-highlighted={isHighlightedTime}
-                  id={time}
-                  className={isHighlightedTime ? 'button_nr2' : 'button_nr1'}
-                  onClick={handleClickTimeMap}
-                >
-                  {time}
-                </button>
-              </div>
-            ))}
-          </div>
-          <div className="arraymaprow">
-            {itemsMole.map((item) => (
-              <div>
-                <button
-                  key={item.mole}
-                  data-highlighted={item.isHighlightedMole}
-                  id={item.mole}
-                  className={
-                    item.isHighlightedMole ? 'button_nr2' : 'button_nr1'
-                  }
-                  onClick={handleClickMoleMap}
-                >
-                  {item.mole}
-                </button>
-              </div>
-            ))}
-          </div>
-          <div>
-            <button
-              className={isChangeBckgr ? 'button_nr2' : 'button_nr1'}
-              onClick={handleClick}
-            >
-              START
-            </button>
-          </div>
-        </div>
-      </div>
+      <HitTheMoleGameScreenOne />
       <p>Poniżej ekran drugi będący osobnym komponentem</p>
       <HitTheMoleGameScreenTwo />
     </div>
