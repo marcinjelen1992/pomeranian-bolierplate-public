@@ -15,6 +15,11 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
     { id: 3, isMolePresent: true, isClicked: false },
     { id: 4, isMolePresent: false, isClicked: false },
     { id: 5, isMolePresent: false, isClicked: false },
+    { id: 6, isMolePresent: false, isClicked: false },
+    { id: 7, isMolePresent: false, isClicked: false },
+    { id: 8, isMolePresent: false, isClicked: false },
+    { id: 9, isMolePresent: true, isClicked: false },
+    { id: 10, isMolePresent: false, isClicked: false },
   ];
 
   const [itemsArrayFirstRow, setArrayFirstRow] = useState(initialArrayFirstRow);

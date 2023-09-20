@@ -86,6 +86,8 @@
 .div-of-boxes-row {
     display: flex;
     gap: 8px;
+    flex-wrap: wrap;
+    width: 532px
 }
 
 .screen-two-box {
