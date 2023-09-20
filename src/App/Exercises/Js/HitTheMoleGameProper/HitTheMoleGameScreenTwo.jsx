@@ -2,7 +2,10 @@ import './styles.css';
 import { useState } from 'react';
 import { MoleIcon } from './MoleIcon.jsx';
 
-export const HitTheMoleGameScreenTwo = () => {
+export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
+  const handleScreenSwitch = () => {
+    setScreenSwitch(false);
+  };
   const [isChangeBckgr, setIsChangeBckgr] = useState(false);
   function handleClick() {
     setIsChangeBckgr(!isChangeBckgr);
@@ -20,17 +23,19 @@ export const HitTheMoleGameScreenTwo = () => {
         </div>
         <div className="playingBoard">
           <div>
-            <button className="div_gray">7:42</button>
+            <div className="div_gray">
+              <span>7:42</span>
+            </div>
           </div>
           <div>
-            <button className="div_gray">16</button>
+            <div className="div_gray">
+              <span>16</span>
+            </div>
           </div>
           <div>
             <button
-              className={
-                isChangeBckgr ? 'button_game' : 'button_game_highlighted'
-              }
-              onClick={handleClick}
+              className="button_game_highlighted"
+              onClick={handleScreenSwitch}
             >
               STOP
             </button>

@@ -1,7 +1,10 @@
 import './styles.css';
 import { useState } from 'react';
 
-export const HitTheMoleGameScreenOne = () => {
+export const HitTheMoleGameScreenOne = ({ setScreenSwitch }) => {
+  const handleScreenSwitch = () => {
+    setScreenSwitch(true);
+  };
   const DEFAULT_MOLE_GAME_TIME = [
     {
       time: '1 minuta',
@@ -168,31 +171,26 @@ export const HitTheMoleGameScreenOne = () => {
             ))}
           </div>
           <div className="arrayRowOfButtons">
-            {itemsMole.map((item) => (
+            {itemsMole.map(({ mole, isHighlightedMole }) => (
               <div>
                 <button
-                  key={item.mole}
-                  data-highlighted={item.isHighlightedMole}
-                  id={item.mole}
+                  key={mole}
+                  data-highlighted={isHighlightedMole}
+                  id={mole}
                   className={
-                    item.isHighlightedMole
+                    isHighlightedMole
                       ? 'button_game_highlighted'
                       : 'button_game'
                   }
                   onClick={handleClickMoleMap}
                 >
-                  {item.mole}
+                  {mole}
                 </button>
               </div>
             ))}
           </div>
           <div>
-            <button
-              className={
-                isChangeBckgr ? 'button_game_highlighted' : 'button_game'
-              }
-              onClick={handleClick}
-            >
+            <button className="button_game" onClick={handleScreenSwitch}>
               START
             </button>
           </div>

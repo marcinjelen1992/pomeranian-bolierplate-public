@@ -9,15 +9,25 @@ export const HitTheMoleGameProper = () => {
   // jak masz {itemsTime.map(({ time, isHighlightedTime }) => ( to zrób analogiczną zmianę dla mole
   // zawartość tego co jest tutaj przenieś do innego komponentu
 
+  const [screenSwitch, setScreenSwitch] = useState(false);
+
   return (
     <div className="moleGameWrapper">
       <p>
         Gra polegająca na podążaniu za krecikiem i trafieniu na kwadrat, w
         którym się pojawił.
       </p>
-      <HitTheMoleGameScreenOne />
-      <p>Poniżej ekran drugi będący osobnym komponentem</p>
-      <HitTheMoleGameScreenTwo />
+      {!screenSwitch ? (
+        <HitTheMoleGameScreenOne
+          screenSwitch={screenSwitch}
+          setScreenSwitch={setScreenSwitch}
+        />
+      ) : (
+        <HitTheMoleGameScreenTwo
+          screenSwitch={screenSwitch}
+          setScreenSwitch={setScreenSwitch}
+        />
+      )}
     </div>
   );
 };
