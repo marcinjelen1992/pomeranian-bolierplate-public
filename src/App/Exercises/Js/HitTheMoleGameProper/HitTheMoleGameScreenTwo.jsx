@@ -6,11 +6,34 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
   const handleScreenSwitch = () => {
     setScreenSwitch(false);
   };
-  const [isChangeBckgr, setIsChangeBckgr] = useState(false);
-  function handleClick() {
-    setIsChangeBckgr(!isChangeBckgr);
-  }
-  // 7:42 i 16 zrób jako divy, nie buttony
+
+  // Poniżej kod do randomowego popup kretów
+
+  const initialArrayFirstRow = [
+    { id: 1, isMolePresent: false, isClicked: false },
+    { id: 2, isMolePresent: false, isClicked: false },
+    { id: 3, isMolePresent: true, isClicked: false },
+    { id: 4, isMolePresent: false, isClicked: false },
+    { id: 5, isMolePresent: false, isClicked: false },
+  ];
+
+  const [itemsArrayFirstRow, setArrayFirstRow] = useState(initialArrayFirstRow);
+
+  const handleMoleHit = (event) => {
+    console.log(event);
+    setArrayFirstRow(
+      itemsArrayFirstRow.map((element) => {
+        if (element.id === event.id) {
+          return { ...element, isClicked: true };
+        } else {
+          return { ...element, isClicked: false };
+        }
+      })
+    );
+  };
+
+  //TODO użyj handlemole timeout zrób warunek żeby to co było true stało się false
+
   return (
     <div className="moleGameScreenTwoWrapper">
       <div className="moleGame">
@@ -23,13 +46,13 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
         </div>
         <div className="playingBoard">
           <div>
-            <div className="div_gray">
-              <span>7:42</span>
+            <div style={{ textAlign: 'center' }} className="div_gray">
+              7:42
             </div>
           </div>
           <div>
-            <div className="div_gray">
-              <span>16</span>
+            <div style={{ textAlign: 'center' }} className="div_gray">
+              16
             </div>
           </div>
           <div>
@@ -41,20 +64,23 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
             </button>
           </div>
           <div className="div-of-boxes">
-            <div className="screen-two-box"></div>
-            <div className="screen-two-box">
-              <MoleIcon />
+            <div className="div-of-boxes-row">
+              {itemsArrayFirstRow.map((element) => {
+                const isClickedFieldWithMoles =
+                  element.isMolePresent && element.isClicked
+                    ? 'screen-two-box-correct '
+                    : '';
+                return (
+                  <div
+                    id={element.id}
+                    className={isClickedFieldWithMoles + 'screen-two-box'}
+                    onClick={() => handleMoleHit(element)}
+                  >
+                    {element.isMolePresent && <MoleIcon />}
+                  </div>
+                );
+              })}
             </div>
-            <div className="screen-two-box"></div>
-            <div className="screen-two-box"></div>
-            <div className="screen-two-box"></div>
-          </div>
-          <div className="div-of-boxes">
-            <div className="screen-two-box"></div>
-            <div className="screen-two-box"></div>
-            <div className="screen-two-box"></div>
-            <div className="screen-two-box"></div>
-            <div className="screen-two-box"></div>
           </div>
         </div>
       </div>

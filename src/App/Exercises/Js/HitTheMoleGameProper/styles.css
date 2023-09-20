@@ -75,13 +75,15 @@
     box-shadow: 6px 7px 20px -4px rgba(66, 68, 90, 1);
 }
 
-.div_gray > span {
-    display: block;
-    padding-top: 12px;
-    padding-left: 64px;
-}
+
 
 .div-of-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.div-of-boxes-row {
     display: flex;
     gap: 8px;
 }
@@ -94,6 +96,18 @@
 }
 
 .screen-two-box > :first-child {
+    margin-top: 16px;
+    margin-left: 4px;
+}
+
+.screen-two-box-correct {
+    width: 100px;
+    height: 100px;
+    background: #379c00;
+    border-radius: 8px;
+}
+
+.screen-two-box-correct > :first-child {
     margin-top: 16px;
     margin-left: 4px;
 }
