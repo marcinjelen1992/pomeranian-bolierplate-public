@@ -1,6 +1,7 @@
 import './styles.css';
 import { useState } from 'react';
 import { MoleIcon } from './MoleIcon.jsx';
+import { TimerForGame } from './TimerForGame';
 
 export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
   const handleScreenSwitch = () => {
@@ -24,6 +25,13 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
 
   const [itemsArrayFirstRow, setArrayFirstRow] = useState(initialArrayFirstRow);
 
+  function getRandomInt(max) {
+    return Math.ceil(Math.random() * max);
+  }
+  console.log(getRandomInt(10));
+
+  const [timeoutId, setTimeoutId] = useState(null);
+
   const handleMoleHit = (event) => {
     console.log(event);
     setArrayFirstRow(
@@ -35,7 +43,34 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
         }
       })
     );
+    setTimeout(function () {
+      setArrayFirstRow(
+        itemsArrayFirstRow.map((element) => {
+          return { ...element, isClicked: false };
+        })
+      );
+    }, 200);
   };
+
+  //const [isRunning, setIsRunning] = useState(false);
+
+  //const toogleTimer = () => {
+  //  setIsRunning(!isRunning);
+  //};
+
+  // useEffect(() => {
+  //  let timerInterval;
+  //  if (isRunning) {
+  //    timerInterval = setInterval(() => {
+  //      setCzas((prev) => prev + 1);
+  //    }, 1000);
+  //  } else {
+  //    clearInterval(timerInterval);
+  //  }
+  //  return () => {
+  //    clearInterval(timerInterval);
+  //  };
+  // }, [isRunning]);
 
   //TODO użyj handlemole timeout zrób warunek żeby to co było true stało się false
 
@@ -71,14 +106,21 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
           <div className="div-of-boxes">
             <div className="div-of-boxes-row">
               {itemsArrayFirstRow.map((element) => {
-                const isClickedFieldWithMoles =
-                  element.isMolePresent && element.isClicked
-                    ? 'screen-two-box-correct '
-                    : '';
+                const isClickedFieldWithMoles = () => {
+                  if (element.isClicked === true) {
+                    if (element.isMolePresent === true) {
+                      return 'screen-two-box-correct ';
+                    } else {
+                      return 'screen-two-box-incorrect ';
+                    }
+                  } else {
+                    return '';
+                  }
+                };
                 return (
                   <div
                     id={element.id}
-                    className={isClickedFieldWithMoles + 'screen-two-box'}
+                    className={isClickedFieldWithMoles() + 'screen-two-box'}
                     onClick={() => handleMoleHit(element)}
                   >
                     {element.isMolePresent && <MoleIcon />}

@@ -113,3 +113,10 @@
     margin-top: 16px;
     margin-left: 4px;
 }
+
+.screen-two-box-incorrect {
+    width: 100px;
+    height: 100px;
+    background: #cc0000;
+    border-radius: 8px;
+}
