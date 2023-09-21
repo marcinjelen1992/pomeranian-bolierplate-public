@@ -1,5 +1,5 @@
 import './styles.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MoleIcon } from './MoleIcon.jsx';
 import { TimerForGame } from './TimerForGame';
 
@@ -13,13 +13,13 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
   const initialArrayFirstRow = [
     { id: 1, isMolePresent: false, isClicked: false },
     { id: 2, isMolePresent: false, isClicked: false },
-    { id: 3, isMolePresent: true, isClicked: false },
+    { id: 3, isMolePresent: false, isClicked: false },
     { id: 4, isMolePresent: false, isClicked: false },
     { id: 5, isMolePresent: false, isClicked: false },
     { id: 6, isMolePresent: false, isClicked: false },
     { id: 7, isMolePresent: false, isClicked: false },
     { id: 8, isMolePresent: false, isClicked: false },
-    { id: 9, isMolePresent: true, isClicked: false },
+    { id: 9, isMolePresent: false, isClicked: false },
     { id: 10, isMolePresent: false, isClicked: false },
   ];
 
@@ -30,7 +30,49 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
   }
   console.log(getRandomInt(10));
 
-  const [timeoutId, setTimeoutId] = useState(null);
+  // const [timeoutId, setTimeoutId] = useState(null);
+
+  const [moleIdRandom, setMoleIdRandom] = useState('');
+
+  // poniżej timer do randomizera kretów
+  const [czas, setCzas] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+
+  const toogleTimer = () => {
+    setIsRunning(!isRunning);
+  };
+
+  useEffect(() => {
+    let timerInterval;
+    if (isRunning) {
+      timerInterval = setInterval(() => {
+        setCzas((prev) => prev + 1);
+      }, 1000);
+    } else {
+      clearInterval(timerInterval);
+    }
+    return () => {
+      clearInterval(timerInterval);
+    };
+  }, [isRunning]);
+
+  const generateRandomNumbersAtIntervals = () => {
+    if (isRunning > 0) return Math.ceil(Math.random() * 10);
+  };
+
+  const handleMoleRandomisation = () => {
+    setArrayFirstRow(
+      itemsArrayFirstRow.map((element) => {
+        if (element.id === +generateRandomNumbersAtIntervals()) {
+          return { ...element, isMolePresent: true };
+        } else {
+          return { ...element, isMolePresent: false };
+        }
+      })
+    );
+  };
+
+  //    Funkcja powyżej wywala błąd gdyż wchodzi w nieskończoną pętlę plus nic ją nie uruchamia
 
   const handleMoleHit = (event) => {
     console.log(event);
@@ -128,6 +170,15 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
                 );
               })}
             </div>
+          </div>
+          <div>
+            {' '}
+            <h1>Timer</h1>
+            <h2>{`${czas} sec`}</h2>
+            <button onClick={toogleTimer}>
+              {isRunning ? 'Stop' : 'Start'}
+            </button>
+            <h3>{generateRandomNumbersAtIntervals()}</h3>
           </div>
         </div>
       </div>
