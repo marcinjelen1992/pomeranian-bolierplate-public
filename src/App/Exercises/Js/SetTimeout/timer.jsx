@@ -56,6 +56,10 @@ export const Timer = () => {
 
   // w powyższej funkcji ten return i powtórzenie clearInterwval to funkcja zwrotna
 
+  const generateRandomNumbersAtIntervals = () => {
+    if (isRunning > 0) return Math.ceil(Math.random() * 10);
+  };
+
   const restartTimer = () => {
     setCzas(0);
   };
@@ -81,6 +85,9 @@ export const Timer = () => {
         <h2>{`${czas} sec`}</h2>
         <button onClick={toogleTimer}>{isRunning ? 'Stop' : 'Start'}</button>
         <button onClick={restartTimer}>Restart</button>
+        <h3>
+          Random number is 1 to 10 range: {generateRandomNumbersAtIntervals()}
+        </h3>
       </div>
     </div>
   );

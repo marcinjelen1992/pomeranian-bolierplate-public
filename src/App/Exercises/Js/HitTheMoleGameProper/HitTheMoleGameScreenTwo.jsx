@@ -25,11 +25,6 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
 
   const [itemsArrayFirstRow, setArrayFirstRow] = useState(initialArrayFirstRow);
 
-  function getRandomInt(max) {
-    return Math.ceil(Math.random() * max);
-  }
-  console.log(getRandomInt(10));
-
   // const [timeoutId, setTimeoutId] = useState(null);
 
   const [moleIdRandom, setMoleIdRandom] = useState('');
@@ -60,10 +55,12 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
     if (isRunning > 0) return Math.ceil(Math.random() * 10);
   };
 
-  const handleMoleRandomisation = () => {
+  const [initialNumber, setInitialNumber] = useState(4);
+
+  const handleMoleRandomisation = (number) => {
     setArrayFirstRow(
       itemsArrayFirstRow.map((element) => {
-        if (element.id === +generateRandomNumbersAtIntervals()) {
+        if (element.id === +number) {
           return { ...element, isMolePresent: true };
         } else {
           return { ...element, isMolePresent: false };
@@ -72,10 +69,24 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
     );
   };
 
-  //    Funkcja powyżej wywala błąd gdyż wchodzi w nieskończoną pętlę plus nic ją nie uruchamia
+  const [isBooleanTrue, setIsBooleanTrue] = useState(true);
+
+  useEffect(() => {
+    handleMoleRandomisation(initialNumber);
+    let timerInterval;
+    if (isBooleanTrue) {
+      timerInterval = setInterval(() => {
+        setInitialNumber(Math.ceil(Math.random() * 10));
+      }, 1000);
+    } else {
+      clearInterval(timerInterval);
+    }
+    return () => {
+      clearInterval(timerInterval);
+    };
+  }, [initialNumber]);
 
   const handleMoleHit = (event) => {
-    console.log(event);
     setArrayFirstRow(
       itemsArrayFirstRow.map((element) => {
         if (element.id === event.id) {
@@ -159,6 +170,7 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
                     return '';
                   }
                 };
+
                 return (
                   <div
                     id={element.id}
