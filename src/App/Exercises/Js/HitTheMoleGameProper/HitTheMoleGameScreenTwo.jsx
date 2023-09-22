@@ -27,21 +27,14 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
 
   // const [timeoutId, setTimeoutId] = useState(null);
 
-  const [moleIdRandom, setMoleIdRandom] = useState('');
-
   // poniżej timer do randomizera kretów
-  const [czas, setCzas] = useState(0);
-  const [isRunning, setIsRunning] = useState(false);
-
-  const toogleTimer = () => {
-    setIsRunning(!isRunning);
-  };
+  const [czas, setCzas] = useState(180);
 
   useEffect(() => {
     let timerInterval;
-    if (isRunning) {
+    if (czas > 0) {
       timerInterval = setInterval(() => {
-        setCzas((prev) => prev + 1);
+        setCzas((prev) => prev - 1);
       }, 1000);
     } else {
       clearInterval(timerInterval);
@@ -49,11 +42,45 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
     return () => {
       clearInterval(timerInterval);
     };
-  }, [isRunning]);
+  }, [czas]);
 
-  const generateRandomNumbersAtIntervals = () => {
-    if (isRunning > 0) return Math.ceil(Math.random() * 10);
-  };
+  function convertSecondToMinutes(input) {
+    const internalSeconds = input;
+    const string3 = '3:';
+    const string3zero = '3:0';
+    const string2 = '2:';
+    const string2zero = '2:0';
+    const string1 = '1:';
+    const string1zero = '1:0';
+    if (input <= 239 && input >= 190) {
+      return string3 + (+internalSeconds - 180);
+    }
+    if (input <= 189 && input >= 180) {
+      return string3zero + (+internalSeconds - 180);
+    }
+    if (input <= 179 && input >= 130) {
+      return string2 + (+internalSeconds - 120);
+    }
+    if (input <= 129 && input >= 120) {
+      return string2zero + (+internalSeconds - 120);
+    }
+    if (input <= 119 && input >= 70) {
+      return string1 + (+internalSeconds - 60);
+    }
+    if (input <= 69 && input >= 60) {
+      return string1zero + (+internalSeconds - 60);
+    } else return internalSeconds;
+  }
+
+  // setTimeout(function () {
+  //  setArrayFirstRow(
+  //    itemsArrayFirstRow.map((element) => {
+  //      return { ...element, isClicked: false };
+  //    })
+  //  );
+  // }, 200)
+
+  // Usuń to poniżej i spod returna
 
   const [initialNumber, setInitialNumber] = useState(4);
 
@@ -86,6 +113,9 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
     };
   }, [initialNumber]);
 
+  const [isClicked, setIsClicked] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+
   const handleMoleHit = (event) => {
     setArrayFirstRow(
       itemsArrayFirstRow.map((element) => {
@@ -93,6 +123,16 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
           return { ...element, isClicked: true };
         } else {
           return { ...element, isClicked: false };
+        }
+      })
+    );
+    setIsClicked(true);
+    setClickCount(
+      itemsArrayFirstRow.map((element) => {
+        if (element.isMolePresent === true) {
+          return clickCount + 1;
+        } else {
+          return clickCount - 1;
         }
       })
     );
@@ -104,6 +144,8 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
       );
     }, 200);
   };
+
+  const clickText = isClicked ? `${clickCount}` : '0';
 
   //const [isRunning, setIsRunning] = useState(false);
 
@@ -140,12 +182,12 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
         <div className="playingBoard">
           <div>
             <div style={{ textAlign: 'center' }} className="div_gray">
-              7:42
+              {convertSecondToMinutes(czas)}
             </div>
           </div>
           <div>
             <div style={{ textAlign: 'center' }} className="div_gray">
-              16
+              {clickText}
             </div>
           </div>
           <div>
@@ -182,15 +224,6 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
                 );
               })}
             </div>
-          </div>
-          <div>
-            {' '}
-            <h1>Timer</h1>
-            <h2>{`${czas} sec`}</h2>
-            <button onClick={toogleTimer}>
-              {isRunning ? 'Stop' : 'Start'}
-            </button>
-            <h3>{generateRandomNumbersAtIntervals()}</h3>
           </div>
         </div>
       </div>
