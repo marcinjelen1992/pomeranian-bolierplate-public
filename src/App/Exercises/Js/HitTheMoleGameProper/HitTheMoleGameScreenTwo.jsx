@@ -4,16 +4,39 @@ import { MoleIcon } from './MoleIcon.jsx';
 import { TimerForGame } from './TimerForGame';
 import { SettingsCatcher } from './SettingsCatcher';
 
-export const HitTheMoleGameScreenTwo = ({ setScreenSwitch, getInput1 }) => {
+export const HitTheMoleGameScreenTwo = ({
+  setScreenSwitch,
+  exportItemsTime,
+}) => {
   const handleScreenSwitch = () => {
     setScreenSwitch(false);
   };
 
-  const timeCatch = (input) => {
-    return input;
-  };
+  const screenTwoArrayTime = exportItemsTime;
 
-  console.log(timeCatch({ getInput1 }));
+  console.log(exportItemsTime);
+
+  function getTimes(obj) {
+    return obj.map(({ isHighlightedTime }) => isHighlightedTime);
+  }
+
+  const DEFAULT_MOLE_GAME_TIME = [
+    {
+      isHighlightedTime: false,
+    },
+    {
+      isHighlightedTime: false,
+    },
+    {
+      isHighlightedTime: false,
+    },
+  ];
+
+  // zrób konwersję do arraya booleanów tu lokalnie lub przerób tak, żeby array booleanów zaciągało z głównego
+  const [screenTwoItemsTime, setScreenTwoItemsTime] = useState(
+    DEFAULT_MOLE_GAME_TIME
+  );
+
   // Poniżej kod do randomowego popup kretów
 
   const initialArrayFirstRow = [
@@ -35,6 +58,15 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch, getInput1 }) => {
 
   // poniżej timer do randomizera kretów
   const [czas, setCzas] = useState(180);
+
+  // funkcję uruchom
+  function getSettings(input1) {
+    const setTime = input1;
+    console.log(setTime);
+    if (setTime[0] === true) {
+      setCzas = 60;
+    }
+  }
 
   useEffect(() => {
     let timerInterval;
@@ -235,6 +267,9 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch, getInput1 }) => {
                 );
               })}
             </div>
+          </div>
+          <div>
+            <button>nastaw czas</button>
           </div>
         </div>
       </div>

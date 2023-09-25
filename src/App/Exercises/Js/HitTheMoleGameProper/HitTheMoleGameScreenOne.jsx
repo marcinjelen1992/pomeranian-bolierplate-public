@@ -2,7 +2,11 @@ import { SettingsCatcher } from './SettingsCatcher';
 import './styles.css';
 import { useState } from 'react';
 
-export const HitTheMoleGameScreenOne = ({ setScreenSwitch }) => {
+export const HitTheMoleGameScreenOne = ({
+  setScreenSwitch,
+  setExportItemsTime,
+  input2,
+}) => {
   const handleScreenSwitch = () => {
     setScreenSwitch(true);
   };
@@ -65,12 +69,21 @@ export const HitTheMoleGameScreenOne = ({ setScreenSwitch }) => {
         }
       })
     );
+    setExportItemsTime(
+      itemsTime.map((item) => {
+        if (item.time === event.target.id) {
+          return { ...item, isHighlightedTime: true };
+        } else {
+          return { ...item, isHighlightedTime: false };
+        }
+      })
+    );
   };
 
   function getTimes(obj) {
     return obj.map(({ isHighlightedTime }) => isHighlightedTime);
   }
-  console.log('Boolean dla Time', getTimes(itemsTime));
+  console.log('Boolean dla Time w ScreenOne', getTimes(itemsTime));
 
   // Przestawiacz isHighlightedMole z false na true
 

@@ -5,8 +5,6 @@ export const SettingsCatcher = ({ input1, input2 }) => {
   const getInput1 = input1;
   const getInput2 = input2;
 
-  console.log(getInput1);
-
   function getTheStartData(input1, input2) {
     const inputOneBooleanMap = input1.map(
       ({ isHighlightedTime }) => isHighlightedTime
