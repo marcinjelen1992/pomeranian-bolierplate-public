@@ -1,3 +1,4 @@
+import { SettingsCatcher } from './SettingsCatcher';
 import './styles.css';
 import { useState } from 'react';
 
@@ -92,53 +93,7 @@ export const HitTheMoleGameScreenOne = ({ setScreenSwitch }) => {
 
   // Funkcja do podpięcia pod przycisk START
 
-  function getTheStartData(input1, input2) {
-    const inputOneBooleanMap = input1.map(
-      ({ isHighlightedTime }) => isHighlightedTime
-    );
-    const inputTwoBooleanMap = input2.map(
-      ({ isHighlightedMole }) => isHighlightedMole
-    );
-    const concatenatedMap = inputOneBooleanMap.concat(inputTwoBooleanMap);
-    if (concatenatedMap[0] === true && concatenatedMap[3] === true) {
-      return 'Zaznaczono 1 minutę i 1 kreta';
-    }
-    if (concatenatedMap[0] === true && concatenatedMap[4] === true) {
-      return 'Zaznaczono 1 minutę i 2 krety';
-    }
-    if (concatenatedMap[0] === true && concatenatedMap[5] === true) {
-      return 'Zaznaczono 1 minutę i 3 krety';
-    }
-    if (concatenatedMap[1] === true && concatenatedMap[3] === true) {
-      return 'Zaznaczono 2 minuty i 1 kreta';
-    }
-    if (concatenatedMap[1] === true && concatenatedMap[4] === true) {
-      return 'Zaznaczono 2 minuty i 2 krety';
-    }
-    if (concatenatedMap[1] === true && concatenatedMap[5] === true) {
-      return 'Zaznaczono 2 minuty i 3 krety';
-    }
-    if (concatenatedMap[2] === true && concatenatedMap[3] === true) {
-      return 'Zaznaczono 3 minuty i 1 kreta';
-    }
-    if (concatenatedMap[2] === true && concatenatedMap[4] === true) {
-      return 'Zaznaczono 3 minuty i 2 krety';
-    }
-    if (concatenatedMap[2] === true && concatenatedMap[5] === true) {
-      return 'Zaznaczono 3 minuty i 3 krety';
-    } else {
-      return 'Nie zaznaczono obu opcji';
-    }
-  }
-
-  console.log(
-    'Komunikat z arraya Booleanów:',
-    getTheStartData(itemsTime, itemsMole)
-  );
-  // TODO: Zmień klasy button_nr2 na button, a button_nr1 na highlightedButton a moleGame i inne camelem, plus miej konsekwentne nazwy
-  // className={isHighlightedTime ? 'button_nr2' : 'button_nr1'} zmień żeby zrobić funkcję przełączającą i w klamrowych odwołać się do funkcji
-  // jak masz {itemsTime.map(({ time, isHighlightedTime }) => ( to zrób analogiczną zmianę dla mole
-  // zawartość tego co jest tutaj przenieś do innego komponentu
+  // Przekazana jako props
 
   return (
     <div className="moleGameScreenOneWrapper">
@@ -193,6 +148,9 @@ export const HitTheMoleGameScreenOne = ({ setScreenSwitch }) => {
             <button className="button_game" onClick={handleScreenSwitch}>
               START
             </button>
+          </div>
+          <div>
+            <SettingsCatcher input1={itemsTime} input2={itemsMole} />
           </div>
         </div>
       </div>

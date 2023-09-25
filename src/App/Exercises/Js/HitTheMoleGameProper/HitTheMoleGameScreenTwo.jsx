@@ -2,12 +2,18 @@ import './styles.css';
 import { useState, useEffect } from 'react';
 import { MoleIcon } from './MoleIcon.jsx';
 import { TimerForGame } from './TimerForGame';
+import { SettingsCatcher } from './SettingsCatcher';
 
-export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
+export const HitTheMoleGameScreenTwo = ({ setScreenSwitch, getInput1 }) => {
   const handleScreenSwitch = () => {
     setScreenSwitch(false);
   };
 
+  const timeCatch = (input) => {
+    return input;
+  };
+
+  console.log(timeCatch({ getInput1 }));
   // Poniżej kod do randomowego popup kretów
 
   const initialArrayFirstRow = [
@@ -127,15 +133,20 @@ export const HitTheMoleGameScreenTwo = ({ setScreenSwitch }) => {
       })
     );
     setIsClicked(true);
-    setClickCount(
-      itemsArrayFirstRow.map((element) => {
-        if (element.isMolePresent === true) {
-          return clickCount + 1;
-        } else {
-          return clickCount - 1;
-        }
-      })
+
+    const arrayOfClickedMoles = itemsArrayFirstRow.map((element) => {
+      if (element.isMolePresent && true === event.isMolePresent) {
+        return +1;
+      } else {
+        return -1;
+      }
+    });
+    console.log(arrayOfClickedMoles);
+    const inArrayMax = arrayOfClickedMoles.reduce(
+      (a, b) => Math.max(a, b),
+      -Infinity
     );
+    setClickCount(clickCount + inArrayMax);
     setTimeout(function () {
       setArrayFirstRow(
         itemsArrayFirstRow.map((element) => {
