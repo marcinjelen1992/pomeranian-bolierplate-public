@@ -29,7 +29,21 @@ export const HitTheMoleGameProper = () => {
 
   console.log(exportItemsTime);
 
-  // Skoro to działa tutaj, to wrzuć coś podobnego w screentwo, a to tutaj usuń
+  const DEFAULT_MOLE_GAME_MOLE = [
+    {
+      isHighlightedMole: false,
+    },
+    {
+      isHighlightedMole: false,
+    },
+    {
+      isHighlightedMole: false,
+    },
+  ];
+
+  const [exportItemsMole, setExportItemsMole] = useState(
+    DEFAULT_MOLE_GAME_MOLE
+  );
 
   return (
     <div className="moleGameWrapper">
@@ -43,6 +57,8 @@ export const HitTheMoleGameProper = () => {
           setScreenSwitch={setScreenSwitch}
           exportItemsTime={exportItemsTime}
           setExportItemsTime={setExportItemsTime}
+          exportItemsMole={exportItemsMole}
+          setExportItemsMole={setExportItemsMole}
         />
       ) : (
         <HitTheMoleGameScreenTwo
@@ -50,6 +66,8 @@ export const HitTheMoleGameProper = () => {
           setScreenSwitch={setScreenSwitch}
           exportItemsTime={exportItemsTime}
           setExportItemsTime={setExportItemsTime}
+          exportItemsMole={exportItemsMole}
+          setExportItemsMole={setExportItemsMole}
         />
       )}
     </div>

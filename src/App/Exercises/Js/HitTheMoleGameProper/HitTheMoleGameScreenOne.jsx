@@ -5,7 +5,7 @@ import { useState } from 'react';
 export const HitTheMoleGameScreenOne = ({
   setScreenSwitch,
   setExportItemsTime,
-  input2,
+  setExportItemsMole,
 }) => {
   const handleScreenSwitch = () => {
     setScreenSwitch(true);
@@ -94,6 +94,15 @@ export const HitTheMoleGameScreenOne = ({
           return { ...item, isHighlightedMole: true };
         } else {
           return { ...item, isHighlightedMole: false };
+        }
+      })
+    );
+    setExportItemsMole(
+      itemsMole.map((item) => {
+        if (item.mole === event.target.id) {
+          return { isHighlightedMole: true };
+        } else {
+          return { isHighlightedMole: false };
         }
       })
     );

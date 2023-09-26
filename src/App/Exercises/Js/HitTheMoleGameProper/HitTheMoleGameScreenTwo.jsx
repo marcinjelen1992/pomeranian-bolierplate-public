@@ -7,6 +7,7 @@ import { SettingsCatcher } from './SettingsCatcher';
 export const HitTheMoleGameScreenTwo = ({
   setScreenSwitch,
   exportItemsTime,
+  exportItemsMole,
 }) => {
   const handleScreenSwitch = () => {
     setScreenSwitch(false);
@@ -15,6 +16,10 @@ export const HitTheMoleGameScreenTwo = ({
   const screenTwoArrayTime = exportItemsTime;
 
   console.log(screenTwoArrayTime);
+
+  const screenTwoArrayMole = exportItemsMole;
+
+  console.log(screenTwoArrayMole);
 
   // Poniżej kod do randomowego popup kretów
 
@@ -104,12 +109,32 @@ export const HitTheMoleGameScreenTwo = ({
 
   // Usuń to poniżej i spod returna
 
-  const [initialNumber, setInitialNumber] = useState(4);
+  const getTheStartMole = () => {
+    const setMoleOutput = screenTwoArrayMole.map(
+      ({ isHighlightedMole }) => isHighlightedMole
+    );
+    if (setMoleOutput[0] === true) {
+      return 1;
+    }
+    if (setMoleOutput[1] === true) {
+      return 2;
+    } else {
+      return 3;
+    }
+  };
 
-  const handleMoleRandomisation = (number) => {
+  const [initialNumber1, setInitialNumber1] = useState(4);
+  const [initialNumber2, setInitialNumber2] = useState(6);
+  const [initialNumber3, setInitialNumber3] = useState(9);
+
+  const handleMoleRandomisation = (number1, number2, number3) => {
     setArrayFirstRow(
       itemsArrayFirstRow.map((element) => {
-        if (element.id === +number) {
+        if (
+          element.id === number1 ||
+          element.id === number2 ||
+          element.id === number3
+        ) {
           return { ...element, isMolePresent: true };
         } else {
           return { ...element, isMolePresent: false };
@@ -120,20 +145,35 @@ export const HitTheMoleGameScreenTwo = ({
 
   const [isBooleanTrue, setIsBooleanTrue] = useState(true);
 
-  useEffect(() => {
-    handleMoleRandomisation(initialNumber);
-    let timerInterval;
-    if (isBooleanTrue) {
-      timerInterval = setInterval(() => {
-        setInitialNumber(Math.ceil(Math.random() * 10));
-      }, 1000);
-    } else {
-      clearInterval(timerInterval);
-    }
-    return () => {
-      clearInterval(timerInterval);
-    };
-  }, [initialNumber]);
+  // Uwaga! Dodanie if (isBooleanTrue) {
+  //      timerInterval = setInterval(() => {
+  //        setInitialNumber2
+  //  powoduje, że jeden z kretów dostaje wścieklizny
+
+  useEffect(
+    () => {
+      handleMoleRandomisation(initialNumber1, initialNumber2, initialNumber3);
+      let timerInterval;
+      if (isBooleanTrue) {
+        timerInterval = setInterval(() => {
+          setInitialNumber1(Math.ceil(Math.random() * 10));
+        }, 1000);
+      }
+      if (isBooleanTrue) {
+        timerInterval = setInterval(() => {
+          setInitialNumber2(Math.ceil(Math.random() * 10));
+        }, 1000);
+      } else {
+        clearInterval(timerInterval);
+      }
+      return () => {
+        clearInterval(timerInterval);
+      };
+    },
+    [initialNumber1],
+    [initialNumber2],
+    [initialNumber3]
+  );
 
   const [isClicked, setIsClicked] = useState(false);
   const [clickCount, setClickCount] = useState(0);
@@ -252,7 +292,7 @@ export const HitTheMoleGameScreenTwo = ({
               })}
             </div>
           </div>
-          <div>Placeholder</div>
+          <div>Placeholder {getTheStartMole()}</div>
         </div>
       </div>
     </div>
