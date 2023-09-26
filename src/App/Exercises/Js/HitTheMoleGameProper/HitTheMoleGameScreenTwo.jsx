@@ -14,28 +14,7 @@ export const HitTheMoleGameScreenTwo = ({
 
   const screenTwoArrayTime = exportItemsTime;
 
-  console.log(exportItemsTime);
-
-  function getTimes(obj) {
-    return obj.map(({ isHighlightedTime }) => isHighlightedTime);
-  }
-
-  const DEFAULT_MOLE_GAME_TIME = [
-    {
-      isHighlightedTime: false,
-    },
-    {
-      isHighlightedTime: false,
-    },
-    {
-      isHighlightedTime: false,
-    },
-  ];
-
-  // zrób konwersję do arraya booleanów tu lokalnie lub przerób tak, żeby array booleanów zaciągało z głównego
-  const [screenTwoItemsTime, setScreenTwoItemsTime] = useState(
-    DEFAULT_MOLE_GAME_TIME
-  );
+  console.log(screenTwoArrayTime);
 
   // Poniżej kod do randomowego popup kretów
 
@@ -57,16 +36,21 @@ export const HitTheMoleGameScreenTwo = ({
   // const [timeoutId, setTimeoutId] = useState(null);
 
   // poniżej timer do randomizera kretów
-  const [czas, setCzas] = useState(180);
-
-  // funkcję uruchom
-  function getSettings(input1) {
-    const setTime = input1;
-    console.log(setTime);
-    if (setTime[0] === true) {
-      setCzas = 60;
+  const getTheStartTime = () => {
+    const setTimeOutput = screenTwoArrayTime.map(
+      ({ isHighlightedTime }) => isHighlightedTime
+    );
+    if (setTimeOutput[0] === true) {
+      return 60;
     }
-  }
+    if (setTimeOutput[1] === true) {
+      return 120;
+    } else {
+      return 180;
+    }
+  };
+
+  const [czas, setCzas] = useState(getTheStartTime());
 
   useEffect(() => {
     let timerInterval;
@@ -268,9 +252,7 @@ export const HitTheMoleGameScreenTwo = ({
               })}
             </div>
           </div>
-          <div>
-            <button>nastaw czas</button>
-          </div>
+          <div>Placeholder</div>
         </div>
       </div>
     </div>

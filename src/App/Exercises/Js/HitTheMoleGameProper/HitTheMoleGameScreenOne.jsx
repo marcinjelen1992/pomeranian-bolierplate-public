@@ -72,9 +72,9 @@ export const HitTheMoleGameScreenOne = ({
     setExportItemsTime(
       itemsTime.map((item) => {
         if (item.time === event.target.id) {
-          return { ...item, isHighlightedTime: true };
+          return { isHighlightedTime: true };
         } else {
-          return { ...item, isHighlightedTime: false };
+          return { isHighlightedTime: false };
         }
       })
     );

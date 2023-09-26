@@ -13,18 +13,12 @@ export const HitTheMoleGameProper = () => {
 
   const DEFAULT_MOLE_GAME_TIME = [
     {
-      time: '1 minuta',
-
       isHighlightedTime: false,
     },
     {
-      time: '2 minuty',
-
       isHighlightedTime: false,
     },
     {
-      time: '3 minuty',
-
       isHighlightedTime: false,
     },
   ];
@@ -35,11 +29,7 @@ export const HitTheMoleGameProper = () => {
 
   console.log(exportItemsTime);
 
-  function getTimes(obj) {
-    return obj.map(({ isHighlightedTime }) => isHighlightedTime);
-  }
-
-  console.log('Boolean dla Time w Głównym JSX', getTimes(exportItemsTime));
+  // Skoro to działa tutaj, to wrzuć coś podobnego w screentwo, a to tutaj usuń
 
   return (
     <div className="moleGameWrapper">
