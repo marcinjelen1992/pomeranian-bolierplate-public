@@ -1,8 +1,6 @@
 import './styles.css';
 import { useState, useEffect } from 'react';
 import { MoleIcon } from './MoleIcon.jsx';
-import { TimerForGame } from './TimerForGame';
-import { SettingsCatcher } from './SettingsCatcher';
 
 export const HitTheMoleGameScreenTwo = ({
   setScreenSwitch,
@@ -16,13 +14,7 @@ export const HitTheMoleGameScreenTwo = ({
 
   const screenTwoArrayTime = exportItemsTime;
 
-  console.log(screenTwoArrayTime);
-
   const screenTwoArrayMole = exportItemsMole;
-
-  console.log(screenTwoArrayMole);
-
-  // Poniżej kod do randomowego popup kretów
 
   const initialArrayFirstRow = [
     { id: 1, isMolePresent: false, isClicked: false },
@@ -39,9 +31,6 @@ export const HitTheMoleGameScreenTwo = ({
 
   const [itemsArrayFirstRow, setArrayFirstRow] = useState(initialArrayFirstRow);
 
-  // const [timeoutId, setTimeoutId] = useState(null);
-
-  // poniżej timer do randomizera kretów
   const getTheStartTime = () => {
     const setTimeOutput = screenTwoArrayTime.map(
       ({ isHighlightedTime }) => isHighlightedTime
@@ -103,16 +92,6 @@ export const HitTheMoleGameScreenTwo = ({
     } else return internalSeconds;
   }
 
-  // setTimeout(function () {
-  //  setArrayFirstRow(
-  //    itemsArrayFirstRow.map((element) => {
-  //      return { ...element, isClicked: false };
-  //    })
-  //  );
-  // }, 200)
-
-  // Usuń to poniżej i spod returna
-
   const getTheStartMole2 = () => {
     const setMoleOutput = screenTwoArrayMole.map(
       ({ isHighlightedMole }) => isHighlightedMole
@@ -156,13 +135,6 @@ export const HitTheMoleGameScreenTwo = ({
   };
 
   const [isBooleanTrue, setIsBooleanTrue] = useState(true);
-
-  // Uwaga! Dodanie if (isBooleanTrue) {
-  //      timerInterval = setInterval(() => {
-  //        setInitialNumber2
-  //  powoduje, że jeden z kretów dostaje wścieklizny
-
-  // () =>
 
   useEffect(() => {
     handleMoleRandomisation(initialNumber1, initialNumber2, initialNumber3);
@@ -225,27 +197,6 @@ export const HitTheMoleGameScreenTwo = ({
   const clickText = isClicked ? `${clickCount}` : '0';
 
   setScore(`${clickCount}`);
-  //const [isRunning, setIsRunning] = useState(false);
-
-  //const toogleTimer = () => {
-  //  setIsRunning(!isRunning);
-  //};
-
-  // useEffect(() => {
-  //  let timerInterval;
-  //  if (isRunning) {
-  //    timerInterval = setInterval(() => {
-  //      setCzas((prev) => prev + 1);
-  //    }, 1000);
-  //  } else {
-  //    clearInterval(timerInterval);
-  //  }
-  //  return () => {
-  //    clearInterval(timerInterval);
-  //  };
-  // }, [isRunning]);
-
-  //TODO użyj handlemole timeout zrób warunek żeby to co było true stało się false
 
   return (
     <div className="moleGameScreenTwoWrapper">

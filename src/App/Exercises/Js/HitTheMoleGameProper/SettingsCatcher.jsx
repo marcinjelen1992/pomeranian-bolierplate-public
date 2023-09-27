@@ -1,5 +1,4 @@
 import './styles.css';
-import { useState } from 'react';
 
 export const SettingsCatcher = ({ input1, input2 }) => {
   const getInput1 = input1;
@@ -43,15 +42,6 @@ export const SettingsCatcher = ({ input1, input2 }) => {
       return 'Nie zaznaczono obu opcji';
     }
   }
-
-  console.log(
-    'Komunikat z arraya Booleanów:',
-    getTheStartData(getInput1, getInput2)
-  );
-  // TODO: Zmień klasy button_nr2 na button, a button_nr1 na highlightedButton a moleGame i inne camelem, plus miej konsekwentne nazwy
-  // className={isHighlightedTime ? 'button_nr2' : 'button_nr1'} zmień żeby zrobić funkcję przełączającą i w klamrowych odwołać się do funkcji
-  // jak masz {itemsTime.map(({ time, isHighlightedTime }) => ( to zrób analogiczną zmianę dla mole
-  // zawartość tego co jest tutaj przenieś do innego komponentu
 
   return (
     <div>

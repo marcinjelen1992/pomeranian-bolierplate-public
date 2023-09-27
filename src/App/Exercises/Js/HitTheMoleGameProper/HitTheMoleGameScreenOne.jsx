@@ -29,7 +29,6 @@ export const HitTheMoleGameScreenOne = ({
   ];
 
   const [itemsTime, setItemsTime] = useState(DEFAULT_MOLE_GAME_TIME);
-  console.log(itemsTime);
 
   const DEFAULT_MOLE_GAME_MOLE = [
     {
@@ -50,14 +49,6 @@ export const HitTheMoleGameScreenOne = ({
   ];
 
   const [itemsMole, setItemsMole] = useState(DEFAULT_MOLE_GAME_MOLE);
-  console.log(itemsMole);
-
-  const [isChangeBckgr, setIsChangeBckgr] = useState(false);
-  function handleClick() {
-    setIsChangeBckgr(!isChangeBckgr);
-  }
-
-  // Przestawiacz isHighlightedTime z false na true
 
   const handleClickTimeMap = (event) => {
     setItemsTime(
@@ -80,13 +71,6 @@ export const HitTheMoleGameScreenOne = ({
     );
   };
 
-  function getTimes(obj) {
-    return obj.map(({ isHighlightedTime }) => isHighlightedTime);
-  }
-  console.log('Boolean dla Time w ScreenOne', getTimes(itemsTime));
-
-  // Przestawiacz isHighlightedMole z false na true
-
   const handleClickMoleMap = (event) => {
     setItemsMole(
       itemsMole.map((item) => {
@@ -107,15 +91,6 @@ export const HitTheMoleGameScreenOne = ({
       })
     );
   };
-
-  function getMoles(obj) {
-    return obj.map(({ isHighlightedMole }) => isHighlightedMole);
-  }
-  console.log('Boolean dla Mole', getMoles(itemsMole));
-
-  // Funkcja do podpięcia pod przycisk START
-
-  // Przekazana jako props
 
   return (
     <div className="moleGameScreenOneWrapper">
