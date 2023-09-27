@@ -45,12 +45,18 @@ export const HitTheMoleGameProper = () => {
     DEFAULT_MOLE_GAME_MOLE
   );
 
+  const [score, setScore] = useState(false);
+  const congratulationsString = 'Gratulacje! Twój wynik to ';
+
   return (
     <div className="moleGameWrapper">
       <p>
         Gra polegająca na podążaniu za krecikiem i trafieniu na kwadrat, w
         którym się pojawił.
       </p>
+      <strong>
+        {!screenSwitch && score ? congratulationsString + score : ''}
+      </strong>
       {!screenSwitch ? (
         <HitTheMoleGameScreenOne
           screenSwitch={screenSwitch}
@@ -68,6 +74,8 @@ export const HitTheMoleGameProper = () => {
           setExportItemsTime={setExportItemsTime}
           exportItemsMole={exportItemsMole}
           setExportItemsMole={setExportItemsMole}
+          score={score}
+          setScore={setScore}
         />
       )}
     </div>

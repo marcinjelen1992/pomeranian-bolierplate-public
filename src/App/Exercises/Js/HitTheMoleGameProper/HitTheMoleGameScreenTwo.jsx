@@ -8,6 +8,7 @@ export const HitTheMoleGameScreenTwo = ({
   setScreenSwitch,
   exportItemsTime,
   exportItemsMole,
+  setScore,
 }) => {
   const handleScreenSwitch = () => {
     setScreenSwitch(false);
@@ -96,6 +97,9 @@ export const HitTheMoleGameScreenTwo = ({
     }
     if (input <= 69 && input >= 60) {
       return string1zero + (+internalSeconds - 60);
+    }
+    if (input === 0) {
+      setScreenSwitch(false);
     } else return internalSeconds;
   }
 
@@ -109,23 +113,31 @@ export const HitTheMoleGameScreenTwo = ({
 
   // Usuń to poniżej i spod returna
 
-  const getTheStartMole = () => {
+  const getTheStartMole2 = () => {
     const setMoleOutput = screenTwoArrayMole.map(
       ({ isHighlightedMole }) => isHighlightedMole
     );
-    if (setMoleOutput[0] === true) {
-      return 1;
-    }
-    if (setMoleOutput[1] === true) {
-      return 2;
+    if (setMoleOutput[1] === true || setMoleOutput[2] === true) {
+      return 6;
     } else {
-      return 3;
+      return false;
+    }
+  };
+
+  const getTheStartMole3 = () => {
+    const setMoleOutput = screenTwoArrayMole.map(
+      ({ isHighlightedMole }) => isHighlightedMole
+    );
+    if (setMoleOutput[2] === true) {
+      return 10;
+    } else {
+      return false;
     }
   };
 
   const [initialNumber1, setInitialNumber1] = useState(4);
-  const [initialNumber2, setInitialNumber2] = useState(6);
-  const [initialNumber3, setInitialNumber3] = useState(9);
+  const [initialNumber2, setInitialNumber2] = useState(getTheStartMole2());
+  const [initialNumber3, setInitialNumber3] = useState(getTheStartMole3());
 
   const handleMoleRandomisation = (number1, number2, number3) => {
     setArrayFirstRow(
@@ -150,30 +162,28 @@ export const HitTheMoleGameScreenTwo = ({
   //        setInitialNumber2
   //  powoduje, że jeden z kretów dostaje wścieklizny
 
-  useEffect(
-    () => {
-      handleMoleRandomisation(initialNumber1, initialNumber2, initialNumber3);
-      let timerInterval;
-      if (isBooleanTrue) {
-        timerInterval = setInterval(() => {
-          setInitialNumber1(Math.ceil(Math.random() * 10));
-        }, 1000);
-      }
-      if (isBooleanTrue) {
-        timerInterval = setInterval(() => {
-          setInitialNumber2(Math.ceil(Math.random() * 10));
-        }, 1000);
-      } else {
-        clearInterval(timerInterval);
-      }
-      return () => {
-        clearInterval(timerInterval);
-      };
-    },
-    [initialNumber1],
-    [initialNumber2],
-    [initialNumber3]
-  );
+  // () =>
+
+  useEffect(() => {
+    handleMoleRandomisation(initialNumber1, initialNumber2, initialNumber3);
+    let timerInterval;
+    if (isBooleanTrue) {
+      timerInterval = setInterval(() => {
+        setInitialNumber1(() => Math.ceil(Math.random() * 10));
+        setInitialNumber2(() =>
+          initialNumber2 !== false ? Math.ceil(Math.random() * 10) : false
+        );
+        setInitialNumber3(() =>
+          initialNumber3 !== false ? Math.ceil(Math.random() * 10) : false
+        );
+      }, 1000);
+    } else {
+      clearInterval(timerInterval);
+    }
+    return () => {
+      clearInterval(timerInterval);
+    };
+  }, [initialNumber1, initialNumber2, initialNumber3]);
 
   const [isClicked, setIsClicked] = useState(false);
   const [clickCount, setClickCount] = useState(0);
@@ -214,6 +224,7 @@ export const HitTheMoleGameScreenTwo = ({
 
   const clickText = isClicked ? `${clickCount}` : '0';
 
+  setScore(`${clickCount}`);
   //const [isRunning, setIsRunning] = useState(false);
 
   //const toogleTimer = () => {
@@ -292,7 +303,6 @@ export const HitTheMoleGameScreenTwo = ({
               })}
             </div>
           </div>
-          <div>Placeholder {getTheStartMole()}</div>
         </div>
       </div>
     </div>
