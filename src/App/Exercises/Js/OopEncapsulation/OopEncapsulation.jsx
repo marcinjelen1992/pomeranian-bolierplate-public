@@ -33,6 +33,41 @@ export const OopEncapsulation = () => {
   console.log(marcin.getHashedSecretNumber());
   console.log(marcin.checkIfGivenNumberIsSn(8));
 
+  class Computer {
+    string;
+    compute;
+    print;
+    #secretNumberX = 6;
+    #secretNumberY = 7;
+
+    constructor(string) {
+      this.string = string;
+    }
+
+    #giveMeSecretNumberX() {
+      return this.#secretNumberX;
+    }
+
+    #giveMeSecretNumberY() {
+      return this.#secretNumberY;
+    }
+
+    getSumOfSecretNumbers() {
+      const snx = this.#giveMeSecretNumberX();
+      const sny = this.#giveMeSecretNumberY();
+      return snx + sny;
+    }
+  }
+
+  const computer = new Computer(
+    'I compute',
+    'Give me numbers',
+    'Print I compute'
+  );
+
+  console.log(computer.string);
+  console.log(computer.getSumOfSecretNumbers());
+
   return (
     <>
       <div className="oopEncapsulationPage">Hello there</div>
