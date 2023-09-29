@@ -44,6 +44,35 @@ export const OopInheritance = () => {
 
   console.log(cat.speak('miau miau'));
 
+  class Person {
+    occupation;
+    speak(voice) {
+      return 'I am a person' + voice;
+    }
+  }
+
+  class Doctor extends Person {
+    constructor(occupation) {
+      super();
+      this.occupation = occupation;
+    }
+  }
+
+  const doctor = new Doctor('doctor');
+  console.log(doctor.speak('I am a doctor'));
+
+  class Builder extends Person {
+    constructor(occupation) {
+      super();
+      this.occupation = occupation;
+    }
+  }
+
+  const builder = new Builder('builder');
+  console.log(builder.speak('I am a builder'));
+
+  // Patrz do docx gdyż to jest niekompletne
+
   return (
     <>
       <div className="oopInheritancePage">Hello there</div>
