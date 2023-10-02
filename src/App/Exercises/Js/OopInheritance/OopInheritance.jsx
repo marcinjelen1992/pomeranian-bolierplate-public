@@ -45,31 +45,42 @@ export const OopInheritance = () => {
   console.log(cat.speak('miau miau'));
 
   class Person {
-    occupation;
-    speak(voice) {
-      return 'I am a person' + voice;
+    introduce() {
+      console.log('I am a Person');
+    }
+  }
+
+  class Builder extends Person {
+    introduce() {
+      super.introduce();
+      console.log('I am also a Builder');
     }
   }
 
   class Doctor extends Person {
-    constructor(occupation) {
-      super();
-      this.occupation = occupation;
+    introduce() {
+      super.introduce();
+      console.log('I am also a Doctor');
     }
   }
 
-  const doctor = new Doctor('doctor');
-  console.log(doctor.speak('I am a doctor'));
-
-  class Builder extends Person {
-    constructor(occupation) {
-      super();
-      this.occupation = occupation;
+  class Pediatrician extends Doctor {
+    introduce() {
+      console.log("I'm a Pediatrician");
     }
   }
 
-  const builder = new Builder('builder');
-  console.log(builder.speak('I am a builder'));
+  const person = new Person();
+  person.introduce();
+
+  const builder = new Builder();
+  builder.introduce();
+
+  const doctor = new Doctor();
+  doctor.introduce();
+
+  const pediatrician = new Pediatrician();
+  pediatrician.introduce();
 
   // Patrz do docx gdyż to jest niekompletne
 

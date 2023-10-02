@@ -34,39 +34,28 @@ export const OopEncapsulation = () => {
   console.log(marcin.checkIfGivenNumberIsSn(8));
 
   class Computer {
-    string;
-    compute;
-    print;
-    #secretNumberX = 6;
-    #secretNumberY = 7;
+    #faveWord = 'I compute!';
 
-    constructor(string) {
-      this.string = string;
+    #add(x, y) {
+      return x + y;
     }
 
-    #giveMeSecretNumberX() {
-      return this.#secretNumberX;
+    compute(num1, num2, multiplier) {
+      const sum = this.#add(num1, num2);
+      return sum * multiplier;
     }
 
-    #giveMeSecretNumberY() {
-      return this.#secretNumberY;
-    }
-
-    getSumOfSecretNumbers() {
-      const snx = this.#giveMeSecretNumberX();
-      const sny = this.#giveMeSecretNumberY();
-      return snx + sny;
+    iCompute() {
+      console.log(this.#faveWord);
     }
   }
 
-  const computer = new Computer(
-    'I compute',
-    'Give me numbers',
-    'Print I compute'
-  );
+  const myComputer = new Computer();
 
-  console.log(computer.string);
-  console.log(computer.getSumOfSecretNumbers());
+  const result = myComputer.compute(2, 39, 8);
+  console.log(`Wynik: ${result}`);
+
+  myComputer.iCompute();
 
   return (
     <>
