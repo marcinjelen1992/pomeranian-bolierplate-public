@@ -25,6 +25,7 @@ import { oopEncapsulationRouterMetaData as oopEncapsulationRouterMetaData } from
 import { oopInheritanceRouterMetaData as oopInheritanceRouterMetaData } from './OopInheritance/router-data';
 import { oopCompositionRouterMetaData as oopCompositionRouterMetaData } from './OopComposition/router-data';
 import { tryCatchAndFinallyRouterMetaData as tryCatchAndFinallyRouterMetaData } from './TryCatchAndFinally/router-data';
+import { tryCatchExerciseRouterMetaData as tryCatchExerciseRouterMetaData } from './TryCatchExercise/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
@@ -52,5 +53,6 @@ export const blockRouterMetaData = [
   oopInheritanceRouterMetaData,
   oopCompositionRouterMetaData,
   tryCatchAndFinallyRouterMetaData,
+  tryCatchExerciseRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
