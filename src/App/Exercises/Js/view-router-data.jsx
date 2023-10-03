@@ -28,6 +28,7 @@ import { tryCatchAndFinallyRouterMetaData as tryCatchAndFinallyRouterMetaData } 
 import { tryCatchExerciseRouterMetaData as tryCatchExerciseRouterMetaData } from './TryCatchExercise/router-data';
 import { thisRouterMetaData as thisRouterMetaData } from './This/router-data';
 import { jsonLearningRouterMetaData as jsonLearningRouterMetaData } from './JsonLearning/router-data';
+import { jsStoragesRouterMetaData as jsStoragesRouterMetaData } from './JsStorages/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
@@ -58,5 +59,6 @@ export const blockRouterMetaData = [
   tryCatchExerciseRouterMetaData,
   thisRouterMetaData,
   jsonLearningRouterMetaData,
+  jsStoragesRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
