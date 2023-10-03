@@ -1,0 +1,62 @@
+.jsStoragesPage {
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+}
+
+.jsStoragesPage > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.jsStoragesPage > div > div > button {
+        font-family: 'Montserrat',  sans-serif;
+        width: 163px;
+        height: 56px;
+        font-size: 18px;
+        line-height: 31px;
+        border-radius: 8px;
+        background-color: #FE3756;
+        color: #fff;
+        border-color: #FE3756;
+}
+
+.allNicksList {
+    width: 240px;
+    height: 280px; 
+    border-radius: 8px;
+    border: 1px solid var(--gray-300, #C8CBD1);
+    background: rgba(217, 217, 217, 0.00);
+    padding: 38px 25px; 
+}
+
+.jsStoragesPage > div > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.jsStoragesPage > div > ul > li {
+    width: 180px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.jsStoragesPage > div > ul > li > button {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 26px;
+    height: 26px;
+    font-size: 18px;
+    line-height: 31px;
+    border-radius: 10px;
+    background-color: #FE3756;
+    color: #fff;
+    border-color: #FE3756;
+}
