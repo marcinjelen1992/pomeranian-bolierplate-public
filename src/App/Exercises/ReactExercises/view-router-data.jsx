@@ -16,6 +16,8 @@ import { materialUIRouterMetaData } from './materialUI/router-data';
 
 import { selectsPrevRouterMetaData } from './SelectsPrev/router-data';
 
+import { useEffectsRouterMetaData as useEffectsRouterMetaData } from './UseEffects/router-data';
+
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   ReactOnClickRouterMetaData,
@@ -25,5 +27,6 @@ export const blockRouterMetaData = [
   ReactOnClick6RouterMetaData,
   materialUIRouterMetaData,
   selectsPrevRouterMetaData,
+  useEffectsRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
