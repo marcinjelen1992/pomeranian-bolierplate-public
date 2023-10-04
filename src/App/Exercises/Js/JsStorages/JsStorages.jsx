@@ -15,27 +15,25 @@ export const JsStorages = () => {
 
   // Jak chcesz podpiąć pod sessionStorage to w każdej funkcji zamień localStorage. na sessionStorage.
 
-  const [nick, setNick] = useState(localStorage.getItem('test3'));
-  const [nickInLs, setNickInLs] = useState(null);
+  const [name, setName] = useState('');
+  const [nick, setNick] = useState(
+    localStorage.getItem('nick')?.split(',') || []
+  );
 
   function handleChange(event) {
-    setNick(event.target.value);
+    setName(event.target.value);
   }
 
   function setLs2() {
-    localStorage.setItem('test3', nick);
-    setNickInLs(
-      <li>
-        {nick}
-        <button onClick={resetLs3}>X</button>
-      </li>
-    );
+    setNick([...nick, name]);
+    localStorage.setItem('nick', [...nick, name]);
   }
 
+  // zrób tak by przez ...coś było coś dodawane do arraya, użyj pop by dodać na koniec arraya
+  // po wczytaniu strony to ma od razu z local storage zaciągać dane na dzień dobry i wyświetlać tabelę
+
   function resetLs3() {
-    localStorage.removeItem('test3');
-    setNick(null);
-    setNickInLs(null);
+    localStorage.removeItem('nick', [nick.pop()]);
   }
 
   return (
@@ -68,7 +66,14 @@ export const JsStorages = () => {
           </div>
         </div>
         <div className="allNicksList">
-          <ul>{nickInLs}</ul>
+          <ul>
+            {nick.map((item) => (
+              <li>
+                {item}
+                <button onClick={resetLs3}>X</button>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </>
