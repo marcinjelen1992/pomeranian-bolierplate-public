@@ -31,6 +31,7 @@ import { jsonLearningRouterMetaData as jsonLearningRouterMetaData } from './Json
 import { jsStoragesRouterMetaData as jsStoragesRouterMetaData } from './JsStorages/router-data';
 import { promisesExerciseRouterMetaData as promisesExerciseRouterMetaData } from './PromisesExercise/router-data';
 import { asyncAwaitRouterMetaData as asyncAwaitRouterMetaData } from './AsyncAwait/router-data';
+import { asyncAwaitExerciseRouterMetaData as asyncAwaitExerciseRouterMetaData } from './AsyncAwaitExercise/router-data';
 
 export const blockRouterMetaData = [
   blockRouterMetaDataJsVariables1,
@@ -64,5 +65,6 @@ export const blockRouterMetaData = [
   jsStoragesRouterMetaData,
   promisesExerciseRouterMetaData,
   asyncAwaitRouterMetaData,
+  asyncAwaitExerciseRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
