@@ -18,6 +18,8 @@ import { selectsPrevRouterMetaData } from './SelectsPrev/router-data';
 
 import { useEffectsRouterMetaData as useEffectsRouterMetaData } from './UseEffects/router-data';
 
+import { todoWithServerRouterMetaData as todoWithServerRouterMetaData } from './TodoWithServer/router-data';
+
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   ReactOnClickRouterMetaData,
@@ -28,5 +30,6 @@ export const blockRouterMetaData = [
   materialUIRouterMetaData,
   selectsPrevRouterMetaData,
   useEffectsRouterMetaData,
+  todoWithServerRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
