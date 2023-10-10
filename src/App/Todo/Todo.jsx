@@ -1,6 +1,7 @@
 import { SingleBox } from './SingleBox';
 import './styles.css';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Todo = () => {
   const [todos, setTodos] = useState([]);
@@ -55,6 +56,13 @@ export const Todo = () => {
   function testFunct() {
     console.log('przycisk działa');
   }
+
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = `/Todo/AddNewItemPage`;
+    navigate(path);
+  };
+
   return (
     <>
       <div className="todoCssPage">
@@ -68,6 +76,10 @@ export const Todo = () => {
           <button onClick={getTodos} type="button">
             Pobierz dane
           </button>
+          <p>
+            Zrób żeby od razu rysowało na przykładzie JS Storages i/lub użyj
+            useEffect
+          </p>
         </div>
         {errorMessage && <strong>{errorMessage}</strong>}
         {todos?.map((obj) => {
@@ -84,7 +96,8 @@ export const Todo = () => {
         })}
 
         <div>
-          <button>Dodaj</button>
+          <div></div>
+          <button onClick={routeChange}>Dodaj</button>
         </div>
       </div>
     </>
