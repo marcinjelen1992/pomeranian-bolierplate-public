@@ -5,12 +5,58 @@
     gap: 20px;
 }
 
+.todoCssPage > :last-child > button {
+    display: flex;
+    width: 163px;
+height: 56px;
+padding: 20px 36px;
+justify-content: center;
+align-items: center;
+gap: 16px;
+    margin-left: 540px;
+    border-radius: 8px;
+border: 1px solid var(--primary-primary, #FE3756);
+background: var(--primary-primary, #FE3756);
+color: #FFF;
+text-align: center;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 31px
+}
+
+.todoCssPageSecondLine {
+    display: flex;
+    width: 700px;
+    justify-content: space-between;
+}
+
+.todoCssPageSecondLine > button {
+    display: flex;
+width: 30px;
+height: 30px;
+padding: 10.357px 18.643px;
+justify-content: center;
+align-items: center;
+gap: 8.286px;
+flex-shrink: 0;
+border-radius: 4.143px;
+border: 0.518px solid var(--primary-primary, #FE3756);
+background: var(--primary-primary, #FE3756); 
+color: #FFF;
+text-align: center;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: 16px
+}
+
 .todo-list {
     display: flex;
     flex-direction: row;
-
+    justify-content: space-between;
     padding: 18px 24px 18px 24px;
-    width: 650px;
+    width: 700px;
     box-shadow: 0px 65px 30px 0px rgba(0, 0, 0, 0.01), 0px 8px 20px 0px rgba(0, 0, 0, 0.04), 0px 17px 35px 0px rgba(0, 0, 0, 0.05), 0px -4px 26px 0px rgba(0, 0, 0, 0.08);
 }
 
@@ -32,7 +78,7 @@
 }
 
 .todo-list > div > p:last-child {
-    padding-right: 20px;
+    width: 500px;
     font-size: 14px;
 }
 
@@ -40,12 +86,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100px;
 }
 
 .todo-box-icon-column > div {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.todo-box-icon-column > :first-child {
+    padding-top: 18px;
 }
 
 .todo-box-icon-column > div > p {
