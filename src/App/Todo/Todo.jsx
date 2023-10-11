@@ -4,6 +4,28 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const Todo = () => {
+  // import { fetchData } from './api/todoListApi'
+  // Trzy consty
+  // getTodoDATA [getTodosData, setTodosData] = useState([]); <- Dobrą praktyką przy constach do pobierania danych jest nazywanie get
+  // getIsLoading [getIsLoadingList, setIsLoadingList] = useState(true); <- Is mówi o booleanie
+  // getError [getError, setError] = useState('');
+
+  // const fetchTodoData = async () => {
+  // setIsLoading(true); <- to uruchamia kręciołek podczas ładowania danych
+  // try {
+  // const responseData = await fetchData("http://localhost:3333/api/todo");
+  // setTodosData(responseData);
+  // setIsLoading(false)
+  // } catch (error) {
+  //  setError(error);
+  // setIsLoading(false);
+  // }
+  // }
+
+  // useEffect(() => {
+  // fetchTodoData();
+  // }, []);
+
   const [todos, setTodos] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   function getTodos() {
@@ -21,6 +43,10 @@ export const Todo = () => {
         setErrorMessage('Serwer nie działa');
       });
   }
+
+  useEffect(() => {
+    getTodos();
+  }, []);
   // Komunikat błędu pojawia się, ale nie znika, zrób timeout lub co tam uważasz według preferencji
 
   // const data = [
@@ -71,16 +97,7 @@ export const Todo = () => {
           <p>Tutaj znajdziesz listę swoich zadań</p>
           <button onClick={testFunct}>+</button>
         </div>
-        <div>
-          {' '}
-          <button onClick={getTodos} type="button">
-            Pobierz dane
-          </button>
-          <p>
-            Zrób żeby od razu rysowało na przykładzie JS Storages i/lub użyj
-            useEffect
-          </p>
-        </div>
+
         {errorMessage && <strong>{errorMessage}</strong>}
         {todos?.map((obj) => {
           return (
