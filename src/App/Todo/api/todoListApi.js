@@ -12,9 +12,9 @@ export const fetchData = async (url) => {
 //  "author": "string"
 // }
 
-export const sendData = async (url, data) => {
+export const sendData = async (url, data, methodParam = "POST") => {
     const options = {
-        method: "POST",
+        method: methodParam,
         headers: {
             'Content-type': "application/json"
         },
@@ -23,5 +23,8 @@ export const sendData = async (url, data) => {
     const response = await fetch(url, options);
     return response.json();
 }
+
+// sendData(url, [], "DELETE") //usunięcie danych
+// sendData(url, data); // wysyłanie danych
 
 // użyj url localhost:3333/api/todo
