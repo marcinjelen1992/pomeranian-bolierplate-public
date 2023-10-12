@@ -28,7 +28,7 @@ export const AddNewItemPage = () => {
     return { title: input1, note: input2, author: input3 };
   }
 
-  console.log(getArray(getTitle, getNote, getAuthor));
+  //  console.log(getArray(getTitle, getNote, getAuthor));
 
   const [getError, setError] = useState('');
 
@@ -42,6 +42,9 @@ export const AddNewItemPage = () => {
         setError(error);
       });
   }
+
+  // dodaj timeout dla komunikatu błędu lub usunięcie przy odświeżaniu
+  // uruchom przycisk cofnij
 
   return (
     <>

@@ -29,7 +29,8 @@ export const sendData = async (url, data, methodParam = "POST") => {
     if(response.status === 200) {
         resolve(response.json())
     } else {
-        reject(response.json().message)
+        const json = await response.json()
+        reject(json.message)
     }
 })
 }
