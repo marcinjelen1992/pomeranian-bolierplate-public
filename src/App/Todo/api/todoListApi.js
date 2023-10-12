@@ -12,7 +12,11 @@ export const fetchData = async (url) => {
 //  "author": "string"
 // }
 
+
+
 export const sendData = async (url, data, methodParam = "POST") => {
+
+    return new Promise(async (resolve, reject) => {
     const options = {
         method: methodParam,
         headers: {
@@ -21,7 +25,13 @@ export const sendData = async (url, data, methodParam = "POST") => {
         body: JSON.stringify(data)
     }
     const response = await fetch(url, options);
-    return response.json();
+    //return response.json();
+    if(response.status === 200) {
+        resolve(response.json())
+    } else {
+        reject(response.json().message)
+    }
+})
 }
 
 // sendData(url, [], "DELETE") //usunięcie danych

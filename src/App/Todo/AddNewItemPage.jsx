@@ -30,12 +30,25 @@ export const AddNewItemPage = () => {
 
   console.log(getArray(getTitle, getNote, getAuthor));
 
+  const [getError, setError] = useState('');
+
+  async function handleAdding() {
+    await sendData(
+      'http://localhost:3333/api/todo',
+      getArray(getTitle, getNote, getAuthor)
+    )
+      .then((response) => {})
+      .catch((error) => {
+        setError(error);
+      });
+  }
+
   return (
     <>
       <div className="todoAddItemPage">
         <strong>TODO</strong>
         <div className="todoAddItemRow">
-          <p>Zrób tutaj inputy</p>
+          <p>Dodawanie zadania</p>
         </div>
         <div className="todoAddItemRow">
           <span>Tytuł</span>
@@ -52,17 +65,9 @@ export const AddNewItemPage = () => {
         <div className="todoAddItemButtons">
           <div></div>
           <button>Cofnij</button>
-          <button
-            onClick={() =>
-              sendData(
-                'http://localhost:3333/api/todo',
-                getArray(getTitle, getNote, getAuthor)
-              )
-            }
-          >
-            Dodaj
-          </button>
+          <button onClick={() => handleAdding()}>Dodaj</button>
         </div>
+        <div>{getError && <p>Błąd dodawania, spróbuj ponownie</p>}</div>
       </div>
     </>
   );

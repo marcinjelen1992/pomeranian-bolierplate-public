@@ -125,7 +125,26 @@ line-height: 16px
     width: 500px;
 }
 
-.todoAddItemButtons > button {
+.todoAddItemButtons > :nth-child(2) {
+    display: flex;
+    width: 163px;
+height: 56px;
+padding: 20px 36px;
+justify-content: center;
+align-items: center;
+gap: 16px;
+    border-radius: 8px;
+border: 1px solid var(--primary-primary, #23213D);
+background: var(--primary-primary, #23213D);
+color: #FFF;
+text-align: center;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 31px
+}
+
+.todoAddItemButtons > :last-child {
     display: flex;
     width: 163px;
 height: 56px;
