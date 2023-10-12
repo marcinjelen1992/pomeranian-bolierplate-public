@@ -20,8 +20,12 @@ export const AddNewItemPage = () => {
     setNote(event.target.value);
   }
 
+  // function getArray(input1, input2, input3) {
+  //  return [input1, input2, input3];
+  // }
+
   function getArray(input1, input2, input3) {
-    return [input1, input2, input3];
+    return { title: input1, note: input2, author: input3 };
   }
 
   console.log(getArray(getTitle, getNote, getAuthor));
