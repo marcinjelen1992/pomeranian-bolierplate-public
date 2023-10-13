@@ -6,7 +6,6 @@ export const AddNewItemPage = () => {
   const [getTitle, setTitle] = useState('');
   const [getAuthor, setAuthor] = useState('');
   const [getNote, setNote] = useState('');
-  const [emptyArray, setEmptyArray] = useState([]);
 
   function GetTitleInput(event) {
     setTitle(event.target.value);
