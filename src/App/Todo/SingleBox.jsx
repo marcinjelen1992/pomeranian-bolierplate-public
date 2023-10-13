@@ -88,7 +88,6 @@ export const SingleBox = ({
       })
       .catch((error) => {
         setErrorMessage(error);
-        setScreenSwitch(false);
       });
   }
 
