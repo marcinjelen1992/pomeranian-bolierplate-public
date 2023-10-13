@@ -2,6 +2,7 @@ import { SingleBox } from './SingleBox';
 import './styles.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { fetchData, sendData } from './api/todoListApi';
 
 export const Todo = () => {
   // import { fetchData } from './api/todoListApi'
@@ -89,6 +90,16 @@ export const Todo = () => {
     navigate(path);
   };
 
+  const [getKickComponent, setGetKickComponent] = useState(null);
+
+  async function handleDelete(paramId) {
+    await sendData(`http://localhost:3333/api/todo/${paramId}`, [], 'DELETE')
+      .then((response) => setGetKickComponent(response))
+      .catch((error) => {
+        setErrorMessage(error);
+      });
+  }
+
   return (
     <>
       <div className="todoCssPage">
@@ -102,6 +113,7 @@ export const Todo = () => {
         {todos?.map((obj) => {
           return (
             <SingleBox
+              id={obj.id}
               title={obj.title}
               createdAt={obj.createdAt}
               author={obj.author}
