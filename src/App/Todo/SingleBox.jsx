@@ -1,9 +1,11 @@
 import './styles.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AcceptIcon } from './AcceptIcon';
 import { BlackTrashcan } from './BlackTrashcan';
+import BlackTrashcanIcon from './BlackTrashcanIcon.svg';
 import { PencilIcon } from './PencilIcon';
 import { BlackCheckmark } from './BlackCheckmark';
+import BlackCheckmarkIcon from './BlackCheckmarkIcon.svg';
 import { fetchData, sendData } from './api/todoListApi';
 
 export const SingleBox = ({
@@ -26,6 +28,22 @@ export const SingleBox = ({
       });
   }
 
+  async function handleDone(paramId) {
+    await sendData(
+      `http://localhost:3333/api/todo/${paramId}/markAsDone`,
+      [],
+      'PUT'
+    )
+      .then((response) => setGetKickComponent(response))
+      .catch((error) => {
+        setErrorMessage(error);
+      });
+  }
+
+  //  useEffect(() => {
+  //    handleDone();
+  //  }, [getKickComponent]);
+
   return (
     <div className="todo-list">
       <div>
@@ -37,10 +55,12 @@ export const SingleBox = ({
       <div className="todo-box-icon-column">
         <div>
           <div className="todo-box-icon-column-upper-row">
-            <BlackCheckmark />
+            {!isDone && (
+              <img src={BlackCheckmarkIcon} onClick={() => handleDone(id)} />
+            )}
             <PencilIcon />
-            <BlackTrashcan onClick={() => handleDelete(id)} />
-            <img src={BlackTrashcan} onClick={() => handleDelete(id)} />
+
+            <img src={BlackTrashcanIcon} onClick={() => handleDelete(id)} />
             {errorMessage && <p>Server error, try again</p>}
           </div>
         </div>

@@ -96,6 +96,8 @@ line-height: 16px
 }
 
 .todo-box-icon-column > :first-child {
+    display: flex;
+    align-items: flex-end;
     padding-top: 18px;
 }
 
