@@ -89,9 +89,6 @@ export const Timer2 = () => {
         <h3>{divideTimeBySixty(czas)}</h3>
         <button onClick={toogleTimer}>{isRunning ? 'Stop' : 'Start'}</button>
         <button onClick={restartTimer}>Restart</button>
-        <h3>
-          Random number is 1 to 10 range: {generateRandomNumbersAtIntervals()}
-        </h3>
       </div>
     </div>
   );
