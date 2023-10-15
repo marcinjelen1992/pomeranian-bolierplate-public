@@ -1,6 +1,7 @@
 import './styles.css';
 import { useEffect, useState } from 'react';
 import { Timer } from './timer';
+import { Timer2 } from './timer2';
 
 export const SetTimeout = () => {
   const [count, setCount] = useState(0);
@@ -43,6 +44,9 @@ export const SetTimeout = () => {
       </div>
       <div>
         <Timer />
+      </div>
+      <div>
+        <Timer2 />
       </div>
     </>
   );
