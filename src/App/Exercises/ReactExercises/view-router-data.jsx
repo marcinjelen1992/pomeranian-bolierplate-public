@@ -20,6 +20,8 @@ import { useEffectsRouterMetaData as useEffectsRouterMetaData } from './UseEffec
 
 import { todoWithServerRouterMetaData as todoWithServerRouterMetaData } from './TodoWithServer/router-data';
 
+import { reactUseRefRouterMetaData as reactUseRefRouterMetaData } from './ReactUseRef/router-data';
+
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   ReactOnClickRouterMetaData,
@@ -31,5 +33,6 @@ export const blockRouterMetaData = [
   selectsPrevRouterMetaData,
   useEffectsRouterMetaData,
   todoWithServerRouterMetaData,
+  reactUseRefRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
