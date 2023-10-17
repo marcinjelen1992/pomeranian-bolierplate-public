@@ -1,0 +1,65 @@
+.basicFormPage {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 100px;
+    padding-left: 40px;
+    background-color: #F4F5F7;
+    box-shadow: 0px 65px 30px 0px rgba(0, 0, 0, 0.01), 0px 8px 20px 0px rgba(0, 0, 0, 0.04), 0px 17px 35px 0px rgba(0, 0, 0, 0.05), 0px -4px 26px 0px rgba(0, 0, 0, 0.08); 
+    border-radius: 16px;
+    gap: 22px
+}
+
+.basicFormPage > div :first-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.paymentDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.paymentDiv > input {
+    border: red;
+    background-color: red;
+    background-image: url('./redDotRadio.svg');
+}
+
+.additionalDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.registerDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.acceptDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.labelHeaders {
+    font-size: 22px;
+    font-weight: 700px;
+    line-height: 27px;
+}
+
+.basicFormPage > div > p {
+    margin: 0;
+}
+
+.basicFormPage > div > select {
+    width: 300px;
+    height: 32px;
+    color: var(--gray-500, #999);
+
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px;
+}
