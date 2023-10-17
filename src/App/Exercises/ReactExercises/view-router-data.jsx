@@ -22,6 +22,10 @@ import { todoWithServerRouterMetaData as todoWithServerRouterMetaData } from './
 
 import { reactUseRefRouterMetaData as reactUseRefRouterMetaData } from './ReactUseRef/router-data';
 
+import { reactUseRefExerciseRouterMetaData as reactUseRefExerciseRouterMetaData } from './ReactUseRefExercise/router-data';
+
+import { formsRouterMetaData as formsRouterMetaData } from './Forms/router-data';
+
 export const blockRouterMetaData = [
   SubRouteExampleMetaData,
   ReactOnClickRouterMetaData,
@@ -34,5 +38,7 @@ export const blockRouterMetaData = [
   useEffectsRouterMetaData,
   todoWithServerRouterMetaData,
   reactUseRefRouterMetaData,
+  reactUseRefExerciseRouterMetaData,
+  formsRouterMetaData,
 ];
 export const blockRouterData = getParsedRouterDataList(blockRouterMetaData);
