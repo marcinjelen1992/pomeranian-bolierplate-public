@@ -3,49 +3,67 @@ import { useState, useRef } from 'react';
 import redDotRadio from './redDotRadio.svg';
 import { Checkboxes } from './Checkboxes';
 
-const orderList = [
-  {
-    value: 'enviromentSettings',
-    label: 'ustawienia środowiska',
-    isCheck: true,
-  },
-  {
-    value: 'introGit',
-    label: 'intro do GitHub',
-    isCheck: false,
-  },
-  {
-    value: 'additionalMaterial',
-    label: 'materiały dodatkowe',
-    isCheck: false,
-  },
-];
-
-const accountList = [
-  {
-    value: 'createAccount',
-    label: 'zakładam konto',
-    isCheck: false,
-  },
-];
-
-const termsList = [
-  {
-    value: 'acceptTerms',
-    label: 'akceptuję regulamin*',
-    isCheck: false,
-  },
-];
-
-const mailingList = [
-  {
-    value: 'acceptMailingList',
-    label: 'zapisuję się na listę mailingową',
-    isCheck: false,
-  },
-];
-
 export const BasicForm = () => {
+  const orderList = [
+    {
+      value: 'enviromentSettings',
+      label: 'ustawienia środowiska',
+      isCheck: true,
+    },
+    {
+      value: 'introGit',
+      label: 'intro do GitHub',
+      isCheck: false,
+    },
+    {
+      value: 'additionalMaterial',
+      label: 'materiały dodatkowe',
+      isCheck: false,
+    },
+  ];
+
+  const accountList = [
+    {
+      value: 'createAccount',
+      label: 'zakładam konto',
+      isCheck: false,
+    },
+  ];
+
+  const termsList = [
+    {
+      value: 'acceptTerms',
+      label: 'akceptuję regulamin*',
+      isCheck: false,
+    },
+  ];
+
+  const mailingList = [
+    {
+      value: 'acceptMailingList',
+      label: 'zapisuję się na listę mailingową',
+      isCheck: false,
+    },
+  ];
+
+  const [formData, setFormData] = useState({
+    chooseProduct: '',
+    choosePayment: { blik: false, paypal: false, traditional: false },
+    additionalOptions: {
+      enviromentSettings: false,
+      introGit: false,
+      additionalMaterial: false,
+    },
+    personName: '',
+    nickName: '',
+    sendAdress: '',
+    mailAdress: '',
+    phoneNumber: '',
+    additionalNotes: '',
+    createAccount: false,
+    acceptTerms: false,
+    acceptMailingList: false,
+  });
   // domyślnie button w form submituje
   // można to potwierdzić przez <button type="submit">Submit</button>
   // jak button ma być buttonem bez submitowanie to daj <button type="button">Submit</button>
