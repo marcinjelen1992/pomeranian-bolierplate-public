@@ -22,10 +22,29 @@
     flex-direction: row;
 }
 
-.paymentDiv > input {
-    border: red;
+input[type='radio'] {
+    position: absolute;
+    visibility: hidden;
+}
+
+input[type='radio']+.classForLabel:before {
+    border: 1px solid red;
+    background: #F4F5F7;
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+input[type='radio']:checked+.classForLabel:before {
     background-color: red;
-    background-image: url('./redDotRadio.svg');
+    box-shadow: inset 0 0 0 4px #F4F5F7;
+}
+
+input[type='checkbox'] {
+    background-color: red;
 }
 
 .additionalDiv {
@@ -33,19 +52,33 @@
     flex-direction: row;
 }
 
+.rodoDiv {
+        display: flex;
+        flex-direction: column;
+        gap: 22px
+}
+
 .registerDiv {
+    margin-top: 8px;
+}
+
+.registerDiv > div {
     display: flex;
     flex-direction: row;
 }
 
 .acceptDiv {
+    margin-top: 8px;
+}
+
+.acceptDiv > div {
     display: flex;
     flex-direction: row;
 }
 
 .labelHeaders {
     font-size: 22px;
-    font-weight: 700px;
+    font-weight: 700;
     line-height: 27px;
 }
 

@@ -26,81 +26,122 @@ export const BasicForm = () => {
         <div>
           <label for="choosePayment">Wybierz płatność*</label>
           <div className="paymentDiv">
-            <input name="payment" type="radio" />
-            <p>blik</p>
+            <input name="payment" type="radio" id="blik" value="blik" />
+            <label for="blik" className="classForLabel">
+              blik
+            </label>
           </div>
           <div className="paymentDiv">
-            <input name="payment" type="radio" />
-            <p>paypal</p>
+            <input name="payment" type="radio" id="paypal" value="paypal" />
+            <label for="paypal" className="classForLabel">
+              paypal
+            </label>
           </div>
           <div className="paymentDiv">
-            <input name="payment" type="radio" />
-            <p>przelew tradycyjny</p>
+            <input
+              name="payment"
+              type="radio"
+              id="traditional"
+              value="traditional"
+            />
+            <label for="traditional" className="classForLabel">
+              przelew tradycyjny
+            </label>
           </div>
         </div>
 
         <div>
           <label for="chooseAdditional">Opcje dodatkowe do zamówienia</label>
           <div className="additionalDiv">
-            <input name="additional" type="checkbox" />
-            <p>ustawienia środowiska</p>
+            <input
+              name="additional"
+              type="checkbox"
+              id="enviromentSettings"
+              value="enviromentSettings"
+            />
+            <label for="enviromentSettings" className="classForCheckbox">
+              ustawienia środowiska
+            </label>
           </div>
           <div className="additionalDiv">
-            <input name="additional" type="checkbox" />
-            <p>intro do GitHub</p>
+            <input
+              name="additional"
+              type="checkbox"
+              id="introGit"
+              value="introGit"
+            />
+            <label for="introGit" className="classForCheckbox">
+              intro do GitHub
+            </label>
           </div>
           <div className="additionalDiv">
-            <input name="additional" type="checkbox" />
-            <p>materiały dodatkowe</p>
+            <input
+              name="additional"
+              type="checkbox"
+              id="additionalMaterial"
+              value="additionalMaterial"
+            />
+            <label for="additionalMaterial" className="classForCheckbox">
+              materiały dodatkowe
+            </label>
           </div>
         </div>
 
-        <h2>Dane do realizacji zamówienia</h2>
-        <label for="personName">Imię i nazwisko*</label>
-        <input
-          id="personName"
-          type="text"
-          placeholder="wpisz swoje imie i nazwisko"
-        />
+        <div className="rodoDiv">
+          <label className="labelHeaders" for="chooseRodo">
+            Dane do realizacji zamówienia{' '}
+          </label>
+          <label for="personName">Imię i nazwisko*</label>
+          <input
+            id="personName"
+            type="text"
+            placeholder="wpisz swoje imie i nazwisko"
+          />
 
-        <label for="nickName">Pseudonim*</label>
-        <input id="nickName" type="text" placeholder="wpisz swój pseudonim" />
+          <label for="nickName">Pseudonim*</label>
+          <input id="nickName" type="text" placeholder="wpisz swój pseudonim" />
 
-        <label for="sendAdress">Adres do wysyłki*</label>
-        <input
-          id="sendAdress"
-          type="text"
-          placeholder="adres na który wysłać zamówienie"
-        />
+          <label for="sendAdress">Adres do wysyłki*</label>
+          <input
+            id="sendAdress"
+            type="text"
+            placeholder="adres na który wysłać zamówienie"
+          />
 
-        <label for="mailAdress">Adres e-mail*</label>
-        <input
-          id="mailAdress"
-          type="text"
-          placeholder="jan.kowalski@gmail.com"
-        />
+          <label for="mailAdress">Adres e-mail*</label>
+          <input
+            id="mailAdress"
+            type="text"
+            placeholder="jan.kowalski@gmail.com"
+          />
 
-        <label for="phoneNumber">Numer kontaktowy*</label>
-        <input id="phoneNumber" type="text" placeholder="+48 888 888 888" />
+          <label for="phoneNumber">Numer kontaktowy*</label>
+          <input id="phoneNumber" type="text" placeholder="+48 888 888 888" />
 
-        <label for="additionalNotes">Dodatkowe uwagi do zamówienia</label>
-        <input
-          id="additionalNotes"
-          type="text"
-          placeholder="Jeśli masz jakieś uwagi, wpisz je tutaj"
-        />
+          <label for="additionalNotes">Dodatkowe uwagi do zamówienia</label>
+          <input
+            id="additionalNotes"
+            type="text"
+            placeholder="Jeśli masz jakieś uwagi, wpisz je tutaj"
+          />
+        </div>
 
         <div>
           <label className="labelHeaders" for="chooseRegister">
             Zakładanie konta
           </label>
-          <div>
-            <span>
-              Realizując zamówienie, akceptujesz regulamin naszego sklepu
-            </span>
-            <div className="registerDiv">
-              <input name="register" type="checkbox" />
-              <p>zakładam konto</p>
+          <div className="registerDiv">
+            <span>Chcę założyć konto razem z zamówieniem</span>
+            <div>
+              <input
+                name="register"
+                type="checkbox"
+                id="createAccount"
+                value="createAccount"
+              />
+              <label for="createAccount" className="classForCheckbox">
+                zakładam konto
+              </label>
             </div>{' '}
           </div>
         </div>
@@ -117,13 +158,36 @@ export const BasicForm = () => {
           <label className="labelHeaders" for="chooseAccept">
             Zgody i newsletter
           </label>
-          <div>
+          <div className="acceptDiv">
             <span>
               Realizując zamówienie, akceptujesz regulamin naszego sklepu
             </span>
-            <div className="acceptDiv">
-              <input name="accept" type="checkbox" />
-              <p>akceptuję regulamin*</p>
+            <div>
+              <input
+                name="accept1"
+                type="checkbox"
+                id="acceptTerms"
+                value="acceptTerms"
+              />
+              <label for="acceptTerms" className="classForCheckbox">
+                akceptuję regulamin*
+              </label>
+            </div>{' '}
+          </div>
+          <div className="acceptDiv">
+            <span>
+              Dołącz do naszego newslettera z promocjami dla naszych klientów
+            </span>
+            <div>
+              <input
+                name="accept2"
+                type="checkbox"
+                id="acceptMailingList"
+                value="acceptMailingList"
+              />
+              <label for="acceptMailingList" className="classForCheckbox">
+                zapisuję się na listę mailingową
+              </label>
             </div>{' '}
           </div>
         </div>
