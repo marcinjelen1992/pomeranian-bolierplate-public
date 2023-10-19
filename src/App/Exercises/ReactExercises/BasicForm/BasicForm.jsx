@@ -1,6 +1,49 @@
 import './styles.css';
 import { useState, useRef } from 'react';
 import redDotRadio from './redDotRadio.svg';
+import { Checkboxes } from './Checkboxes';
+
+const orderList = [
+  {
+    value: 'enviromentSettings',
+    label: 'ustawienia środowiska',
+    isCheck: true,
+  },
+  {
+    value: 'introGit',
+    label: 'intro do GitHub',
+    isCheck: false,
+  },
+  {
+    value: 'additionalMaterial',
+    label: 'materiały dodatkowe',
+    isCheck: false,
+  },
+];
+
+const accountList = [
+  {
+    value: 'createAccount',
+    label: 'zakładam konto',
+    isCheck: false,
+  },
+];
+
+const termsList = [
+  {
+    value: 'acceptTerms',
+    label: 'akceptuję regulamin*',
+    isCheck: false,
+  },
+];
+
+const mailingList = [
+  {
+    value: 'acceptMailingList',
+    label: 'zapisuję się na listę mailingową',
+    isCheck: false,
+  },
+];
 
 export const BasicForm = () => {
   // domyślnie button w form submituje
@@ -52,39 +95,8 @@ export const BasicForm = () => {
 
         <div>
           <label for="chooseAdditional">Opcje dodatkowe do zamówienia</label>
-          <div className="additionalDiv">
-            <input
-              name="additional"
-              type="checkbox"
-              id="enviromentSettings"
-              value="enviromentSettings"
-            />
-            <label for="enviromentSettings" className="classForCheckbox">
-              ustawienia środowiska
-            </label>
-          </div>
-          <div className="additionalDiv">
-            <input
-              name="additional"
-              type="checkbox"
-              id="introGit"
-              value="introGit"
-            />
-            <label for="introGit" className="classForCheckbox">
-              intro do GitHub
-            </label>
-          </div>
-          <div className="additionalDiv">
-            <input
-              name="additional"
-              type="checkbox"
-              id="additionalMaterial"
-              value="additionalMaterial"
-            />
-            <label for="additionalMaterial" className="classForCheckbox">
-              materiały dodatkowe
-            </label>
-          </div>
+
+          <Checkboxes list={orderList} onChange={() => {}} />
         </div>
 
         <div className="rodoDiv">
@@ -132,17 +144,7 @@ export const BasicForm = () => {
           </label>
           <div className="registerDiv">
             <span>Chcę założyć konto razem z zamówieniem</span>
-            <div>
-              <input
-                name="register"
-                type="checkbox"
-                id="createAccount"
-                value="createAccount"
-              />
-              <label for="createAccount" className="classForCheckbox">
-                zakładam konto
-              </label>
-            </div>{' '}
+            <Checkboxes list={accountList} onChange={() => {}} />
           </div>
         </div>
 
@@ -162,37 +164,17 @@ export const BasicForm = () => {
             <span>
               Realizując zamówienie, akceptujesz regulamin naszego sklepu
             </span>
-            <div>
-              <input
-                name="accept1"
-                type="checkbox"
-                id="acceptTerms"
-                value="acceptTerms"
-              />
-              <label for="acceptTerms" className="classForCheckbox">
-                akceptuję regulamin*
-              </label>
-            </div>{' '}
+            <Checkboxes list={termsList} onChange={() => {}} />
           </div>
           <div className="acceptDiv">
             <span>
               Dołącz do naszego newslettera z promocjami dla naszych klientów
             </span>
-            <div>
-              <input
-                name="accept2"
-                type="checkbox"
-                id="acceptMailingList"
-                value="acceptMailingList"
-              />
-              <label for="acceptMailingList" className="classForCheckbox">
-                zapisuję się na listę mailingową
-              </label>
-            </div>{' '}
+            <Checkboxes list={mailingList} onChange={() => {}} />
           </div>
         </div>
 
-        <button>Submit</button>
+        <button>Składam zamówienie</button>
       </form>
     </>
   );
