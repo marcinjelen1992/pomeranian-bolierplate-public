@@ -27,6 +27,7 @@ export const ComponentForTests = () => {
           <button onClick={handleClick}>Kliknij mnie</button>
           <button onClick={handleClick}>Kliknij mnie</button>
           <button onClick={handleClick}>Kliknij UNIQUE</button>
+          <button onClick={handleClick}>Kliknij tutaj</button>
         </div>
       )}
     </div>
