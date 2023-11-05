@@ -82,81 +82,19 @@ export const Timer3 = () => {
     return secondsInOctal;
   }
 
-  function hexadecimalInOctalNotation(input) {
-    const secondsInOctal = input.toString(8);
-    const halfOfOctal = secondsInOctal / 2;
-    const secondsMinusHalf = secondsInOctal - halfOfOctal;
-    const floorOfOctal = Math.floor(secondsMinusHalf);
-    const floorDividedByTen = floorOfOctal / 10;
-    const floorOfDivided = Math.floor(floorDividedByTen);
-    const numbersBelowZero = floorDividedByTen - floorOfDivided;
-    // zakres 0-7 poniżej 0,5 a zakres A-H równe i wyższe 0,5
-    const secondsDividedByTen = secondsInOctal / 10;
-    const floorOfSeconds = Math.floor(secondsDividedByTen);
-    // return floorDividedByTen - floorOfDivided;
-    const floorByTen = floorOfSeconds * 10;
-    const numbersBetweenZeroAndSeven = secondsInOctal - floorByTen;
-    if (numbersBetweenZeroAndSeven === 0 && numbersBelowZero < 0.5) {
-      return floorOfDivided + '0';
-    }
-    if (numbersBetweenZeroAndSeven === 1 && numbersBelowZero < 0.5) {
-      return floorOfDivided + '1';
-    }
-    if (numbersBetweenZeroAndSeven === 2 && numbersBelowZero < 0.5) {
-      return floorOfDivided + '2';
-    }
-    if (numbersBetweenZeroAndSeven === 3 && numbersBelowZero < 0.5) {
-      return floorOfDivided + '3';
-    }
-    if (numbersBetweenZeroAndSeven === 4 && numbersBelowZero < 0.5) {
-      return floorOfDivided + '4';
-    }
-    if (numbersBetweenZeroAndSeven === 5 && numbersBelowZero < 0.5) {
-      return floorOfDivided + '5';
-    }
-    if (numbersBetweenZeroAndSeven === 6 && numbersBelowZero < 0.5) {
-      return floorOfDivided + '6';
-    }
-    if (numbersBetweenZeroAndSeven === 7 && numbersBelowZero < 0.5) {
-      return floorOfDivided + '7';
-    }
-    if (numbersBetweenZeroAndSeven === 0 && numbersBelowZero >= 0.5) {
-      return floorOfDivided + 'A';
-    }
-    if (numbersBetweenZeroAndSeven === 1 && numbersBelowZero >= 0.5) {
-      return floorOfDivided + 'B';
-    }
-    if (numbersBetweenZeroAndSeven === 2 && numbersBelowZero >= 0.5) {
-      return floorOfDivided + 'C';
-    }
-    if (numbersBetweenZeroAndSeven === 3 && numbersBelowZero >= 0.5) {
-      return floorOfDivided + 'D';
-    }
-    if (numbersBetweenZeroAndSeven === 4 && numbersBelowZero >= 0.5) {
-      return floorOfDivided + 'E';
-    }
-    if (numbersBetweenZeroAndSeven === 5 && numbersBelowZero >= 0.5) {
-      return floorOfDivided + 'F';
-    }
-    if (numbersBetweenZeroAndSeven === 6 && numbersBelowZero >= 0.5) {
-      return floorOfDivided + 'G';
-    }
-    if (numbersBetweenZeroAndSeven === 7 && numbersBelowZero >= 0.5) {
-      return floorOfDivided + 'H';
-    } else return numbersBetweenZeroAndSeven;
+  function hexadecimalNumber(input) {
+    const secondsInHexadecimal = input.toString(16);
+    return secondsInHexadecimal;
   }
 
   return (
     <div>
       <div>
-        <h1>Octal timer</h1>
+        <h1>Alternative timers</h1>
         <h2>{czas}</h2>
         <p>{divideTimeBySixty(czas)}</p>
-        <p>octal seconds: {octalNumber(czas)}</p>
-        <p>
-          hexadecimal in octal (correct up to 7H):{' '}
-          {hexadecimalInOctalNotation(czas)}
-        </p>
+        <p>Octal: {octalNumber(czas)}</p>
+        <p>Hexadecimal: {hexadecimalNumber(czas)}</p>
         <button onClick={toogleTimer}>{isRunning ? 'Stop' : 'Start'}</button>
         <button onClick={restartTimer}>Restart</button>
       </div>
