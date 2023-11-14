@@ -22,7 +22,9 @@ export const Dashboard = () => {
             </div>
           </div>
           <div>
-            <div>3</div>
+            <div>
+              3<PersonalCardIcon />
+            </div>
           </div>
         </div>
         <p>
