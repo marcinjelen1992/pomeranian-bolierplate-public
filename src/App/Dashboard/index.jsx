@@ -11,7 +11,9 @@ export const Dashboard = () => {
             <div>
               1<PersonalCardIcon />
             </div>
-            <div>4</div>
+            <div>
+              4<PersonalCardIcon />
+            </div>
           </div>
           <div>
             <div>2</div>
