@@ -15,7 +15,9 @@ export const Dashboard = () => {
           </div>
           <div>
             <div>2</div>
-            <div>5</div>
+            <div>
+              5<PersonalCardIcon />
+            </div>
           </div>
           <div>
             <div>3</div>
